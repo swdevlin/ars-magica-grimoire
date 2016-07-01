@@ -265,23 +265,13 @@
         </fo:inline-container>
         <fo:inline-container vertical-align="top" inline-progression-dimension="49.9%">
           <fo:block></fo:block>
-<!--          <fo:block text-align="right"> -->
-<!--            <fo:external-graphic width="14pt" height="14pt" content-width="14pt" content-height="14pt" src="images/{$technique}.png" /> -->
-<!--          </fo:block> -->
-<!--        </fo:inline-container> -->
-<!--        <fo:inline-container vertical-align="top" inline-progression-dimension="19.9%"> -->
-<!--          <fo:block text-align="right"> -->
-<!--            <fo:external-graphic width="14pt" height="14pt" content-width="14pt" content-height="14pt" src="images/{$form}.png" /> -->
-<!--          </fo:block> -->
         </fo:inline-container>
       </fo:block>
     </fo:static-content>
     <fo:static-content flow-name="xsl-region-after">
-<!--      <fo:block-container absolute-position="absolute" top="10.5in" left="4in" width="3.9in" height="0.5in"> -->
-        <fo:block color="{$handcolour}" text-align="right" font-family="Calibri" font-size="8pt" font-weight="normal" margin-right="2cm">
-          <xsl:value-of select="$technique"/><xsl:text> </xsl:text><xsl:value-of select="$form"/>
-        </fo:block>
-<!--      </fo:block-container> -->
+      <fo:block color="{$handcolour}" text-align="right" font-family="Calibri" font-size="8pt" font-weight="normal" margin-right="2cm">
+        <xsl:value-of select="$technique"/><xsl:text> </xsl:text><xsl:value-of select="$form"/>
+      </fo:block>
     </fo:static-content>
     <fo:flow flow-name="xsl-region-body">
         <xsl:variable name="color"><xsl:value-of select="/ars_magica/arts/form[name=$form]/color"/></xsl:variable>
