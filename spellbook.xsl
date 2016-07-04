@@ -11,6 +11,12 @@
   <xsl:output method="xml" indent="yes" />
   
   <xsl:variable name="in" select="/" />
+  <xsl:variable name="sortedspells">
+    <xsl:for-each select="$in/ars_magica/spells/spell">
+      <xsl:sort select="name"/>
+      <xsl:copy-of select="current()"/>
+    </xsl:for-each>
+  </xsl:variable>
   <xsl:variable name="handcolour">#2B1B09</xsl:variable>
   <xsl:variable name="Creo">#FFFFF0</xsl:variable> <!-- white --> 
   <xsl:variable name="Intellego">#FFD700</xsl:variable> <!-- gold -->
@@ -31,7 +37,7 @@
   <xsl:variable name="handfont">Asphyxiate</xsl:variable>
   <xsl:variable name="sigfont">Asphyxiate</xsl:variable>
   <xsl:variable name="textfont">Calibri</xsl:variable>
-  
+
   <xsl:template match="/">
     <xsl:choose>
       <xsl:when test="$single = ''"><xsl:call-template name="book"/></xsl:when>
@@ -105,16 +111,20 @@
       <!--  Each form/technique pair  -->
       <xsl:for-each select="/ars_magica/arts/form/name">
         <xsl:variable name="form" select="."/>
-        <xsl:call-template name="form-notes">
-          <xsl:with-param name="form" select="$form"/>
-        </xsl:call-template>
+        <xsl:if test="$spellsonly = 'false'">
+          <xsl:call-template name="form-notes">
+            <xsl:with-param name="form" select="$form"/>
+          </xsl:call-template>
+        </xsl:if>
           
         <xsl:for-each select="/ars_magica/arts/technique/name">
           <xsl:variable name="technique" select="."/>
-          <xsl:call-template name="art-guidelines">
-            <xsl:with-param name="form" select="$form"/>
-            <xsl:with-param name="technique" select="$technique"/>
-          </xsl:call-template>
+          <xsl:if test="$spellsonly = 'false'">
+            <xsl:call-template name="art-guidelines">
+              <xsl:with-param name="form" select="$form"/>
+              <xsl:with-param name="technique" select="$technique"/>
+            </xsl:call-template>
+          </xsl:if>
 
           <xsl:call-template name="spellblock">
             <xsl:with-param name="form" select="$form"/>
@@ -122,9 +132,13 @@
           </xsl:call-template>
         </xsl:for-each>
       </xsl:for-each>
+      <xsl:call-template name="spellindex"></xsl:call-template>
     </fo:root>
   </xsl:template>
-
+  
+  <xsl:template name="spellsonly">
+  </xsl:template>
+  
   <xsl:template name="singleform">
     <fo:root>
       <fo:layout-master-set>
@@ -192,6 +206,8 @@
   <xsl:template match="text()"><xsl:copy/></xsl:template>
 
   <xsl:template match="strong"><fo:inline font-weight="bold"><xsl:value-of select="."/></fo:inline></xsl:template>
+
+  <xsl:template match="emphasis"><fo:inline font-style="italic"><xsl:value-of select="."/></fo:inline></xsl:template>
 
   <xsl:template match="p" mode="notes"><fo:block color="{$handcolour}" space-before="2.5pt" text-indent="1em" font-size="9pt"><xsl:apply-templates/></fo:block></xsl:template>
 
@@ -269,12 +285,12 @@
       </fo:block>
     </fo:static-content>
     <fo:static-content flow-name="xsl-region-after">
-      <fo:block color="{$handcolour}" text-align="right" font-family="Calibri" font-size="8pt" font-weight="normal" margin-right="2cm">
+      <fo:block color="{$handcolour}" text-align="right" font-family="{$textfont}" font-size="8pt" font-weight="normal" margin-right="2cm">
         <xsl:value-of select="$technique"/><xsl:text> </xsl:text><xsl:value-of select="$form"/>
       </fo:block>
     </fo:static-content>
     <fo:flow flow-name="xsl-region-body">
-        <xsl:variable name="color"><xsl:value-of select="/ars_magica/arts/form[name=$form]/color"/></xsl:variable>
+      <xsl:variable name="color"><xsl:value-of select="/ars_magica/arts/form[name=$form]/color"/></xsl:variable>
       <fo:block color="{$color}" text-transform="capitalize"
         font-family="{$artfont}" font-size="12pt" margin-bottom="8px" font-weight="normal"><xsl:value-of select="$technique"/><xsl:text> </xsl:text><xsl:value-of select="$form"/> Spells</fo:block>
           <xsl:variable name="generalspells" select="$in/ars_magica/spells/spell[arts/technique=$technique and arts/form=$form and level='GENERAL']"/>
@@ -282,9 +298,9 @@
       <xsl:variable name="levels" select="distinct-values($spells/level)"/>
 
       <xsl:if test="count($generalspells) &gt; 0">
-        <fo:block keep-with-next.within-page="always" font-size="9pt" font-family="Calibri" margin-bottom="0.2em">GENERAL</fo:block>
+        <fo:block keep-with-next.within-page="always" font-size="9pt" font-family="{$textfont}" margin-bottom="0.2em">GENERAL</fo:block>
         <xsl:call-template name="spells-at-level">
-              <xsl:with-param name="form" select="$form"/>
+          <xsl:with-param name="form" select="$form"/>
           <xsl:with-param name="technique" select="$technique"/>
           <xsl:with-param name="level" select="'GENERAL'"/>
         </xsl:call-template>
@@ -292,7 +308,7 @@
       <xsl:for-each select="$levels">
           <xsl:sort select="." data-type="number"/>
         <xsl:variable name="slevel" select="."/>
-        <fo:block keep-with-next.within-page="always" font-size="9pt" font-family="Calibri" margin-bottom="0.2em">LEVEL <xsl:value-of select="$slevel"/></fo:block>
+        <fo:block keep-with-next.within-page="always" font-size="9pt" font-family="{$textfont}" margin-bottom="0.2em">LEVEL <xsl:value-of select="$slevel"/></fo:block>
         <xsl:call-template name="spells-at-level">
           <xsl:with-param name="form" select="$form"/>
           <xsl:with-param name="technique" select="$technique"/>
@@ -319,29 +335,29 @@
     <xsl:param name="form"/>
     <xsl:param name="technique"/>
     <xsl:param name="level"/>
-    <xsl:for-each select="$in/ars_magica/spells/spell[arts/technique=$technique and arts/form=$form and level=$level]">
+    <xsl:for-each select="$sortedspells/spell[arts/technique=$technique and arts/form=$form and level=$level]">
       <fo:block page-break-inside="avoid">
-        <fo:block font-family="Calibri" font-size="9pt" font-weight="normal">
+        <fo:block id="{generate-id(.)}" font-family="{$textfont}" font-size="9pt" font-weight="normal">
           <fo:inline text-transform="capitalize"><xsl:value-of select="name" /></fo:inline><xsl:call-template name="source"/>
         </fo:block>
-        <fo:block font-family="Calibri" text-indent="1em" font-size="8pt" font-weight="normal">
+        <fo:block font-family="{$textfont}" text-indent="1em" font-size="8pt" font-weight="normal">
           R: <xsl:apply-templates select="range" />, D: <xsl:apply-templates select="duration" />, T: <xsl:value-of select="target" />
           <xsl:if test="@type='mystery'">, Mystery</xsl:if>
           <xsl:if test="@ritual='true'">, Ritual</xsl:if>
           <xsl:if test="@faerie='true'">, Faerie</xsl:if>
         </fo:block>
-        <xsl:if test="count(requisite) &gt; 0">
-          <fo:block font-family="Calibri" text-indent="1em" font-size="8pt">Requisite: <xsl:apply-templates select="requisite"><xsl:sort select="."/></xsl:apply-templates></fo:block>
+        <xsl:if test="count(arts/requisite) &gt; 0">
+          <fo:block font-family="{$textfont}" text-indent="1em" font-size="8pt">Requisite: <xsl:apply-templates select="arts/requisite"><xsl:sort select="."/></xsl:apply-templates></fo:block>
         </xsl:if>
         <xsl:apply-templates select="description"/>
-        <fo:block margin-bottom="2mm" font-family="Calibri"
+        <fo:block margin-bottom="2mm" font-family="{$textfont}"
           font-size="7pt" font-style="italic" font-weight="normal">
           <xsl:choose>
             <xsl:when test="@type = 'standard' or @type = 'mystery'">
               <xsl:choose>
                 <xsl:when test="guideline/@ward = 'true'">(As ward guideline)</xsl:when>
                 <xsl:otherwise>(Base <xsl:value-of select="guideline/base" /> <xsl:call-template name="spell-guidelines" />
-                <xsl:apply-templates select="requisite" mode="guideline"/>)</xsl:otherwise>
+                <xsl:apply-templates select="arts/requisite" mode="guideline"/>)</xsl:otherwise>
               </xsl:choose>
             </xsl:when>
             <xsl:when test="@type = 'general'">(Base effect)</xsl:when>
@@ -357,8 +373,50 @@
     </xsl:for-each>
   </xsl:template>
 
+  <xsl:template name="spellindex">
+    <fo:page-sequence master-reference="spell-list">
+      <fo:static-content flow-name="xsl-region-before">
+        <xsl:if test="$edit = ''">
+          <fo:block-container absolute-position="absolute" top="0cm" left="0cm" width="8.5in" height="11.8in"
+            background-image="images/paper2.jpg">
+            <fo:block />
+          </fo:block-container>
+        </xsl:if>
+        <fo:block>
+          <fo:inline-container vertical-align="top" inline-progression-dimension="49.9%">
+            <fo:block></fo:block>
+          </fo:inline-container>
+          <fo:inline-container vertical-align="top" inline-progression-dimension="49.9%">
+            <fo:block></fo:block>
+          </fo:inline-container>
+        </fo:block>
+      </fo:static-content>
+      <fo:flow flow-name="xsl-region-body">
+        <xsl:for-each select="$sortedspells/spell">
+          <xsl:variable name="first" select="substring(name,1,1)"/>
+          <xsl:variable name="prev" select="preceding-sibling::*[1]"/>
+          <xsl:variable name="name" select="name"/>
+
+          <xsl:if test="not(substring($prev/name, 1, 1)=$first)">
+            <fo:block font-family="{$artfont}" font-size="12pt" font-weight="normal">
+              <xsl:value-of select="$first"/>
+            </fo:block>
+          </xsl:if>
+          <fo:block font-family="{$textfont}" font-size="8pt" font-weight="normal">
+            <fo:basic-link internal-destination="{generate-id(.)}">
+              <xsl:value-of select="name" />
+              <fo:leader leader-pattern="dots" />
+              <fo:page-number-citation ref-id="{generate-id(.)}" />              
+            </fo:basic-link>
+          </fo:block>
+        </xsl:for-each>
+      </fo:flow>
+    </fo:page-sequence>
+  </xsl:template>
+  
+  
   <xsl:template match="p">
-    <fo:block text-indent="1em" font-family="Calibri" font-size="8pt" font-weight="normal"><xsl:apply-templates/></fo:block>
+    <fo:block text-indent="1em" font-family="{$textfont}" font-size="8pt" font-weight="normal"><xsl:apply-templates/></fo:block>
   </xsl:template>
 
   <xsl:template match="reference"><fo:inline font-style="italic"><xsl:value-of select="."/></fo:inline>
@@ -369,7 +427,7 @@
   </xsl:template>
 
   <xsl:template match="flavour">
-    <fo:block text-indent="1em" font-family="Calibri" font-size="8pt" font-weight="normal" font-style="italic"><xsl:value-of select="." /></fo:block>
+    <fo:block text-indent="1em" font-family="{$textfont}" font-size="8pt" font-weight="normal" font-style="italic"><xsl:value-of select="." /></fo:block>
   </xsl:template>
 
   <xsl:template name="spell-guidelines">
@@ -381,6 +439,7 @@
       <xsl:when test="range = 'Eye'">, +1 Eye</xsl:when>
       <xsl:when test="range = 'Voice'">, +2 Voice</xsl:when>
       <xsl:when test="range = 'Road'">, +2 Road</xsl:when>
+      <xsl:when test="range = 'Water-way'">, +3 Water-way</xsl:when>
       <xsl:when test="range = 'Sight'">, +3 Sight</xsl:when>
       <xsl:when test="range = 'Arcane Connection'">, +4 Arcane Connection</xsl:when>
       <xsl:when test="range = 'Symbol'">, +4 Symbol</xsl:when>
@@ -421,6 +480,7 @@
       <xsl:when test="target = 'Pair'">, +2 Pair</xsl:when>
       <xsl:when test="target = 'Smell'">, +2 Smell</xsl:when>
       <xsl:when test="target = 'Scent'">, +2 Scent</xsl:when>
+      <xsl:when test="target = 'Special'">, +2 Special</xsl:when>
       <xsl:when test="target = 'Room'">, +2 Room</xsl:when>
       <xsl:when test="target = 'Sight'">, +3 Sight</xsl:when>
       <xsl:when test="target = 'Hearing'">, +3 Hearing</xsl:when>
