@@ -14,7 +14,7 @@ Once installed, edit the boot.bat file, setting the path to Saxon and fop to mat
 
 ## How to run
 
-Just run the spells.bat file. It will create the XSL:FO and then produce the PDF.
+Just run the spellbook.bat file. It will create the XSL:FO and then produce the PDF.
 
 ## XML Definition
 
