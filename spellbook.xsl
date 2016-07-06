@@ -195,7 +195,11 @@
           <xsl:value-of select="$form"/>
         </fo:block>
       </fo:static-content>
-      <fo:static-content flow-name="xsl-region-after"><fo:block></fo:block></fo:static-content>
+      <fo:static-content flow-name="xsl-region-after">
+        <fo:block color="{$handcolour}" text-align-last="justify" font-family="{$textfont}" font-size="8pt" font-weight="normal" margin-left="2cm" margin-right="2cm">
+          <fo:page-number/><fo:leader leader-pattern="space" /> 
+        </fo:block>
+      </fo:static-content>
       <fo:flow flow-name="xsl-region-body">
         <fo:block></fo:block>
         <xsl:apply-templates select="/ars_magica/arts/form[name = $form]/description/p" mode="notes"/>
@@ -230,7 +234,11 @@
           <xsl:value-of select="$technique"/><xsl:text> </xsl:text><xsl:value-of select="$form"/>
         </fo:block>
       </fo:static-content>
-      <fo:static-content flow-name="xsl-region-after"><fo:block></fo:block></fo:static-content>
+      <fo:static-content flow-name="xsl-region-after">
+        <fo:block color="{$handcolour}" text-align-last="justify" font-family="{$textfont}" font-size="8pt" font-weight="normal" margin-left="2cm" margin-right="2cm">
+          <fo:page-number/><fo:leader leader-pattern="space" /> 
+        </fo:block>
+      </fo:static-content>
       <fo:flow flow-name="xsl-region-body"><fo:block></fo:block>
         <xsl:apply-templates select="/ars_magica/arts_guidelines/arts_guideline[arts/form=$form and arts/technique=$technique]/description/p" mode="guideline"/>
         <fo:block space-before="3pt" font-size="8pt"><xsl:text> </xsl:text></fo:block>
@@ -285,8 +293,8 @@
       </fo:block>
     </fo:static-content>
     <fo:static-content flow-name="xsl-region-after">
-      <fo:block color="{$handcolour}" text-align="right" font-family="{$textfont}" font-size="8pt" font-weight="normal" margin-right="2cm">
-        <xsl:value-of select="$technique"/><xsl:text> </xsl:text><xsl:value-of select="$form"/>
+      <fo:block color="{$handcolour}" text-align-last="justify" font-family="{$textfont}" font-size="8pt" font-weight="normal" margin-left="2cm" margin-right="2cm">
+        <fo:page-number/><fo:leader leader-pattern="space" /><xsl:value-of select="$technique"/><xsl:text> </xsl:text><xsl:value-of select="$form"/>
       </fo:block>
     </fo:static-content>
     <fo:flow flow-name="xsl-region-body">
@@ -323,7 +331,7 @@
   <xsl:template match="requisite" mode="guideline">
     , <xsl:choose>
         <xsl:when test="@free = 'true'"><xsl:value-of select="." /> requisite free</xsl:when>
-        <xsl:otherwise>+1 <xsl:value-of select="." /> requisite</xsl:otherwise>
+        <xsl:otherwise>+1 <xsl:value-of select="." /> requisite<xsl:if test="@note != ''"><xsl:text> </xsl:text><xsl:value-of select="@note" /></xsl:if></xsl:otherwise>
     </xsl:choose>
   </xsl:template>
 
@@ -391,6 +399,11 @@
           </fo:inline-container>
         </fo:block>
       </fo:static-content>
+      <fo:static-content flow-name="xsl-region-after">
+        <fo:block color="{$handcolour}" text-align-last="justify" font-family="{$textfont}" font-size="8pt" font-weight="normal" margin-left="2cm" margin-right="2cm">
+          <fo:page-number/><fo:leader leader-pattern="space" /> 
+        </fo:block>
+      </fo:static-content>
       <fo:flow flow-name="xsl-region-body">
         <xsl:for-each select="$sortedspells/spell">
           <xsl:variable name="first" select="substring(name,1,1)"/>
@@ -398,11 +411,11 @@
           <xsl:variable name="name" select="name"/>
 
           <xsl:if test="not(substring($prev/name, 1, 1)=$first)">
-            <fo:block font-family="{$artfont}" font-size="12pt" font-weight="normal">
+            <fo:block font-family="{$artfont}" font-size="12pt" font-weight="normal" margin-top="0.5em">
               <xsl:value-of select="$first"/>
             </fo:block>
           </xsl:if>
-          <fo:block font-family="{$textfont}" font-size="8pt" font-weight="normal">
+          <fo:block font-family="{$textfont}" font-size="8pt" font-weight="normal" text-align-last="justify">
             <fo:basic-link internal-destination="{generate-id(.)}">
               <xsl:value-of select="name" />
               <fo:leader leader-pattern="dots" />
