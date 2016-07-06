@@ -259,6 +259,7 @@
                       <xsl:if test="@mystery='true'"><fo:inline font-style="italic">Mystery </fo:inline></xsl:if>
                       <xsl:if test="@ritual='true'"><fo:inline font-style="italic">Ritual </fo:inline></xsl:if>
                       <xsl:if test="@faerie='true'"><fo:inline font-style="italic">Faerie </fo:inline></xsl:if>
+                      <xsl:if test="@atlantean='true'"><fo:inline font-style="italic">Atlantean </fo:inline></xsl:if>
                       <xsl:value-of select="description"/><xsl:call-template name="source"/>
                     </fo:block>
                   </fo:table-cell>
@@ -353,6 +354,7 @@
           <xsl:if test="@type='mystery'">, Mystery</xsl:if>
           <xsl:if test="@ritual='true'">, Ritual</xsl:if>
           <xsl:if test="@faerie='true'">, Faerie</xsl:if>
+          <xsl:if test="@atlantean='true'">, Atlantean</xsl:if>
         </fo:block>
         <xsl:if test="count(arts/requisite) &gt; 0">
           <fo:block font-family="{$textfont}" text-indent="1em" font-size="8pt">Requisite: <xsl:apply-templates select="arts/requisite"><xsl:sort select="."/></xsl:apply-templates></fo:block>
@@ -411,7 +413,7 @@
           <xsl:variable name="name" select="name"/>
 
           <xsl:if test="not(substring($prev/name, 1, 1)=$first)">
-            <fo:block font-family="{$artfont}" font-size="12pt" font-weight="normal" margin-top="0.5em">
+            <fo:block keep-with-next.within-page="always" font-family="{$artfont}" font-size="12pt" font-weight="normal" margin-top="0.5em">
               <xsl:value-of select="$first"/>
             </fo:block>
           </xsl:if>
