@@ -3,9 +3,10 @@
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
   xmlns:java="http://xml.apache.org/xslt/java"
   exclude-result-prefixes="java" xmlns:fo="http://www.w3.org/1999/XSL/Format">
+
   <xsl:param name="single" select="''"/>
   <xsl:param name="edit" select="''"/>
-  <xsl:param name="cover" select="'true'"/>
+  <xsl:param name="spellsonly" select="'false'"/>
 
   <xsl:output method="xml" indent="yes" />
   
@@ -16,6 +17,7 @@
       <xsl:copy-of select="current()"/>
     </xsl:for-each>
   </xsl:variable>
+  
   <xsl:variable name="handcolour">#2B1B09</xsl:variable>
   <xsl:variable name="Creo">#FFFFF0</xsl:variable> <!-- white --> 
   <xsl:variable name="Intellego">#FFD700</xsl:variable> <!-- gold -->
@@ -76,51 +78,11 @@
         
       </fo:layout-master-set>
 
-      <!-- Cover page -->
-      <xsl:if test="$cover = 'true'">
-        <fo:page-sequence master-reference="inner-leaf">
-          <xsl:if test="$edit = ''">
-            <fo:static-content flow-name="xsl-region-before">
-              <fo:block-container absolute-position="absolute"
-                top="-3.5cm" left="-2cm" width="8.5in" height="11.8in"
-                background-image="images/leaflet.jpg">
-                <fo:block />
-              </fo:block-container>
-            </fo:static-content>
-          </xsl:if>
-          <fo:static-content flow-name="xsl-region-after"><fo:block></fo:block></fo:static-content>
-          <fo:flow flow-name="xsl-region-body">
-            <fo:block color="{$handcolour}" font-family="{$handfont}" font-size="24pt">Most Learned Companion,</fo:block>
-            <fo:block color="{$handcolour}" font-family="{$handfont}" font-size="18pt">
-            Contained here-in are all of the known enchantments of Fractured Magic, recorded without prejudice or bias. 
-            Many sources, both illustrious and wondrous, were exhaustively studied to author the compendium you now hold in your venerable hands. 
-            Enumeration of all prestigious references consulted in the transcription of these enchantments would require a tome as mighty as this one. 
-            I would be amiss, though, not to mention references that were more valuable than most: <fo:inline font-family="Lauren C. Brown" font-size="10pt"> Ars Magica (<xsl:value-of select="count($in/ars_magica/spells/spell[not(@source)])"/> spells),</fo:inline>
-            <xsl:for-each select="ars_magica/books/book">
-              <xsl:sort select="name"/>
-              <xsl:variable name="abbrev" select="abbreviation"/>
-              <xsl:if test="position() = last()"><xsl:text> </xsl:text>and </xsl:if><fo:inline font-family="Lauren C. Brown" font-size="10pt"><xsl:value-of select="name" /><xsl:text> </xsl:text>(<xsl:value-of select="abbreviation" />, <xsl:value-of select="count($in/ars_magica/spells/spell[@source=$abbrev])"/> spells)<xsl:if test="position() &lt; last()">,</xsl:if></fo:inline>
-            </xsl:for-each>.
-            </fo:block>
-            <fo:block font-family="{$handfont}" color="#661A1A" font-size="48pt">N'Allette</fo:block>
-          </fo:flow>
-        </fo:page-sequence>
-      </xsl:if>
-    
       <!--  Each form/technique pair  -->
       <xsl:for-each select="/ars_magica/arts/form/name">
         <xsl:variable name="form" select="."/>
-        <xsl:call-template name="form-notes">
-          <xsl:with-param name="form" select="$form"/>
-        </xsl:call-template>
-          
         <xsl:for-each select="/ars_magica/arts/technique/name">
           <xsl:variable name="technique" select="."/>
-          <xsl:call-template name="art-guidelines">
-            <xsl:with-param name="form" select="$form"/>
-            <xsl:with-param name="technique" select="$technique"/>
-          </xsl:call-template>
-
           <xsl:call-template name="spellblock">
             <xsl:with-param name="form" select="$form"/>
             <xsl:with-param name="technique" select="$technique"/>
@@ -153,105 +115,14 @@
         </fo:simple-page-master>
       </fo:layout-master-set>
     
-        <xsl:call-template name="form-notes">
-          <xsl:with-param name="form" select="$single"/>
-        </xsl:call-template>
-          
       <xsl:for-each select="/ars_magica/arts/technique/name">
         <xsl:variable name="technique" select="."/>
-        <xsl:call-template name="art-guidelines">
-          <xsl:with-param name="form" select="$single"/>
-          <xsl:with-param name="technique" select="$technique"/>
-        </xsl:call-template>
-
         <xsl:call-template name="spellblock">
           <xsl:with-param name="form" select="$single"/>
           <xsl:with-param name="technique" select="$technique"/>
         </xsl:call-template>
       </xsl:for-each>
     </fo:root>
-  </xsl:template>
-
-  <xsl:template name="form-notes">
-    <xsl:param name="form"/>
-    <xsl:variable name="color"><xsl:value-of select="/ars_magica/arts/form[name=$form]/color"/></xsl:variable>
-
-    <fo:page-sequence master-reference="form-notes">
-      <fo:static-content flow-name="xsl-region-before">
-        <xsl:if test="$edit = ''">
-          <fo:block-container absolute-position="absolute" top="0cm" left="0cm" width="8.5in" height="11.8in" background-image="images/form2.jpg">
-            <fo:block />
-          </fo:block-container>
-        </xsl:if>
-        <fo:block margin-top="3cm" text-align="center" color="{$color}" text-transform="capitalize" font-family="{$artfont}" font-size="24pt" font-weight="normal">
-          <xsl:value-of select="$form"/>
-        </fo:block>
-      </fo:static-content>
-      <fo:static-content flow-name="xsl-region-after">
-        <fo:block color="{$handcolour}" text-align-last="justify" font-family="{$textfont}" font-size="8pt" font-weight="normal" margin-left="2cm" margin-right="2cm">
-          <fo:page-number/><fo:leader leader-pattern="space" /> 
-        </fo:block>
-      </fo:static-content>
-      <fo:flow flow-name="xsl-region-body">
-        <fo:block></fo:block>
-        <xsl:apply-templates select="/ars_magica/arts/form[name = $form]/description/p" mode="notes"/>
-      </fo:flow>
-    </fo:page-sequence>
-  </xsl:template>
-
-  <xsl:template name="art-guidelines">
-    <xsl:param name="form"/>
-    <xsl:param name="technique"/>
-      <xsl:variable name="fcolor"><xsl:value-of select="/ars_magica/arts/form[name=$form]/color"/></xsl:variable>
-      <xsl:variable name="tcolor"><xsl:value-of select="/ars_magica/arts/technique[name=$technique]/color"/></xsl:variable>
-
-    <fo:page-sequence master-reference="arts-guideline">
-      <fo:static-content flow-name="xsl-region-before">
-        <xsl:if test="$edit = ''">
-          <fo:block-container absolute-position="absolute" top="0cm" left="0cm" width="8.5in" height="11.8in" background-image="images/backdrop3.jpg">
-            <fo:block />
-          </fo:block-container>
-        </xsl:if>
-        <fo:block margin-top=".75in" text-align="center" color="{$handcolour}" font-family="{$artfont}" font-size="18pt" font-weight="normal">
-          <xsl:value-of select="$technique"/><xsl:text> </xsl:text><xsl:value-of select="$form"/>
-        </fo:block>
-      </fo:static-content>
-      <fo:static-content flow-name="xsl-region-after">
-        <fo:block color="{$handcolour}" text-align-last="justify" font-family="{$textfont}" font-size="8pt" font-weight="normal" margin-left="2cm" margin-right="2cm">
-          <fo:page-number/><fo:leader leader-pattern="space" /> 
-        </fo:block>
-      </fo:static-content>
-      <fo:flow flow-name="xsl-region-body"><fo:block></fo:block>
-        <xsl:apply-templates select="/ars_magica/arts_guidelines/arts_guideline[arts/form=$form and arts/technique=$technique]/description/p" mode="guideline"/>
-        <fo:block space-before="3pt" font-size="8pt"><xsl:text> </xsl:text></fo:block>
-        <xsl:if test="count(/ars_magica/arts_guidelines/arts_guideline[arts/form=$form and arts/technique=$technique]/guidelines/guideline) &gt; 0">
-          <fo:table>
-            <fo:table-body>
-              <xsl:for-each select="/ars_magica/arts_guidelines/arts_guideline[arts/form=$form and arts/technique=$technique]/guidelines/guideline">
-                <fo:table-row table-layout="fixed">
-                  <fo:table-cell width="4.2em">
-                    <fo:block font-size="8pt">
-                      <xsl:if test="not(preceding-sibling::*[1]/level = level)">
-                        <xsl:if test="level != 'General'">Level </xsl:if><xsl:value-of select="level"/>
-                      </xsl:if>
-                    </fo:block>
-                  </fo:table-cell>    
-                  <fo:table-cell>
-                    <fo:block text-indent="-1em" font-size="8pt">
-                      <xsl:if test="@mystery='true'"><fo:inline font-style="italic">Mystery </fo:inline></xsl:if>
-                      <xsl:if test="@ritual='true'"><fo:inline font-style="italic">Ritual </fo:inline></xsl:if>
-                      <xsl:if test="@faerie='true'"><fo:inline font-style="italic">Faerie </fo:inline></xsl:if>
-                      <xsl:if test="@atlantean='true'"><fo:inline font-style="italic">Atlantean </fo:inline></xsl:if>
-                      <xsl:value-of select="description"/><xsl:call-template name="source"/>
-                    </fo:block>
-                  </fo:table-cell>
-                </fo:table-row>
-              </xsl:for-each>
-            </fo:table-body>
-          </fo:table>
-        </xsl:if>
-      </fo:flow>
-    </fo:page-sequence>
   </xsl:template>
 
   <xsl:template name="spellblock">

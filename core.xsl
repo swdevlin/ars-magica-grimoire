@@ -2,9 +2,7 @@
 <xsl:stylesheet version="2.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
   xmlns:java="http://xml.apache.org/xslt/java"
-  exclude-result-prefixes="java" xmlns:fo="http://www.w3.org/1999/XSL/Format">
-
-  
+  exclude-result-prefixes="java" xmlns:fo="http://www.w3.org/1999/XSL/Format">  
   
   <xsl:template match="p">
     <fo:block text-indent="1em" font-family="{$textfont}" font-size="8pt" font-weight="normal"><xsl:apply-templates/></fo:block>
@@ -128,6 +126,5 @@
   <xsl:template match="p" mode="notes"><fo:block color="{$handcolour}" space-before="2.5pt" text-indent="1em" font-size="9pt"><xsl:apply-templates/></fo:block></xsl:template>
 
   <xsl:template match="p" mode="guideline"><fo:block color="{$handcolour}" space-before="2.5pt" text-indent="1em" font-size="9pt"><xsl:apply-templates/></fo:block></xsl:template>
-    
-  
+
 </xsl:stylesheet>
