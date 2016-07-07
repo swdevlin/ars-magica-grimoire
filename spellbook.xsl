@@ -260,8 +260,7 @@
     <fo:page-sequence master-reference="spell-list">
     <fo:static-content flow-name="xsl-region-before">
       <xsl:if test="$edit = ''">
-        <fo:block-container absolute-position="absolute" top="0cm" left="0cm" width="8.5in" height="11.8in"
-          background-image="images/{$form}-paper.jpg">
+        <fo:block-container absolute-position="absolute" top="0cm" left="0cm" width="8.5in" height="11.8in" background-image="images/{$form}-paper.jpg">
           <fo:block />
         </fo:block-container>
       </xsl:if>

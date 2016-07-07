@@ -49,8 +49,8 @@
   <xsl:template name="book">
     <fo:root>
       <fo:layout-master-set>
-        <fo:simple-page-master master-name="spell-list" page-height="11in" page-width="8.5in" margin="0cm">
-          <fo:region-body column-count="2" margin-bottom="0.5in"  margin-top="0.5in" margin-left="2cm" margin-right="2cm"/>
+        <fo:simple-page-master master-name="spell-list" page-width="11in" page-height="8.5in" margin="0cm">
+          <fo:region-body column-count="3" margin-bottom="0.5in"  margin-top="0.5in" margin-left="2cm" margin-right="2cm"/>
           <fo:region-before region-name="xsl-region-before" extent=".5in" />
           <fo:region-after region-name="xsl-region-after" extent=".5in" margin-right="2cm"/>
         </fo:simple-page-master>
@@ -75,19 +75,7 @@
   <xsl:template name="singleform">
     <fo:root>
       <fo:layout-master-set>
-        <fo:simple-page-master master-name="form-notes" page-height="11in" page-width="8.5in" margin="0cm">
-          <fo:region-body margin-bottom="0in" margin-right="2.8cm" margin-left="3.6cm" margin-top="4cm" />
-          <fo:region-before region-name="xsl-region-before" margin-top="0in" extent="3in" />
-          <fo:region-after region-name="xsl-region-after" extent=".25in" />
-        </fo:simple-page-master>
-
-        <fo:simple-page-master master-name="arts-guideline" page-height="11in" page-width="8.5in" margin="0cm">
-          <fo:region-body margin-bottom="1cm" margin-left="3.5cm" margin-right="2.8cm" margin-top="2in" />
-          <fo:region-before region-name="xsl-region-before" extent="3in" />
-          <fo:region-after region-name="xsl-region-after" extent=".25in" />
-        </fo:simple-page-master>
-
-        <fo:simple-page-master master-name="spell-list" page-height="11in" page-width="8.5in" margin="0cm">
+        <fo:simple-page-master master-name="spell-list" page-width="11in" page-height="8.5in" margin="0cm">
           <fo:region-body column-count="2" margin-bottom="0.5in"  margin-top="0.5in" margin-left="2cm" margin-right="2cm"/>
           <fo:region-before region-name="xsl-region-before" extent=".8in" />
           <fo:region-after region-name="xsl-region-after" extent=".25in" />
@@ -110,8 +98,8 @@
     <fo:page-sequence master-reference="spell-list">
       <fo:static-content flow-name="xsl-region-before">
         <xsl:if test="$edit = ''">
-          <fo:block-container absolute-position="absolute" top="0cm" left="0cm" width="8.5in" height="11.8in"
-            background-image="images/{$form}-paper.jpg">
+          <fo:block-container absolute-position="absolute" top="0cm" left="0cm" height="8.5in" width="11.8in"
+            background-image="images/{$form}-paper-wide.jpg">
             <fo:block />
           </fo:block-container>
         </xsl:if>
@@ -199,8 +187,8 @@
     <fo:page-sequence master-reference="spell-list">
       <fo:static-content flow-name="xsl-region-before">
         <xsl:if test="$edit = ''">
-          <fo:block-container absolute-position="absolute" top="0cm" left="0cm" width="8.5in" height="11.8in"
-            background-image="images/index-paper.jpg">
+          <fo:block-container absolute-position="absolute" top="0cm" left="0cm" height="8.5in" width="11.8in"
+            background-image="images/index-paper-wide.jpg">
             <fo:block />
           </fo:block-container>
         </xsl:if>
