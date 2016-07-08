@@ -18,6 +18,12 @@
       <xsl:otherwise>2</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
+  <xsl:variable name="textcols">
+    <xsl:choose>
+      <xsl:when test="translate($orientation, $smallcase, $uppercase) = 'LANDSCAPE'">2</xsl:when>
+      <xsl:otherwise>1</xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
   <xsl:variable name="width">
     <xsl:choose>
       <xsl:when test="translate($orientation, $smallcase, $uppercase) = 'LANDSCAPE'">
