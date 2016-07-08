@@ -32,10 +32,8 @@
   <xsl:variable name="Mentem">#FF8C000</xsl:variable> <!-- orange -->
   <xsl:variable name="Terram">#583933</xsl:variable> <!-- dark brown -->
   <xsl:variable name="Vim">#C0C0C0</xsl:variable> <!-- silver --> 
-  <xsl:variable name="artfont">Lombardy MC</xsl:variable>
-  <xsl:variable name="handfont">Asphyxiate</xsl:variable>
-  <xsl:variable name="sigfont">Asphyxiate</xsl:variable>
-  <xsl:variable name="textfont">Calibri</xsl:variable>
+
+  <xsl:include href="file:./styles.xsl"/>
 
   <xsl:template match="/">
     <xsl:choose>
@@ -308,49 +306,6 @@
     </fo:flow>
   </fo:page-sequence>
     
-  </xsl:template>
-
-  <xsl:template name="spells-at-level">
-    <xsl:param name="form"/>
-    <xsl:param name="technique"/>
-    <xsl:param name="level"/>
-    <xsl:for-each select="$sortedspells/spell[arts/technique=$technique and arts/form=$form and level=$level]">
-      <fo:block page-break-inside="avoid">
-        <fo:block id="{generate-id(.)}" font-family="{$textfont}" font-size="9pt" font-weight="normal">
-          <fo:inline text-transform="capitalize"><xsl:value-of select="name" /></fo:inline><xsl:call-template name="source"/>
-        </fo:block>
-        <fo:block font-family="{$textfont}" text-indent="1em" font-size="8pt" font-weight="normal">
-          R: <xsl:apply-templates select="range" />, D: <xsl:apply-templates select="duration" />, T: <xsl:value-of select="target" />
-          <xsl:if test="@type='mystery'">, Mystery</xsl:if>
-          <xsl:if test="@ritual='true'">, Ritual</xsl:if>
-          <xsl:if test="@faerie='true'">, Faerie</xsl:if>
-          <xsl:if test="@atlantean='true'">, Atlantean</xsl:if>
-        </fo:block>
-        <xsl:if test="count(arts/requisite) &gt; 0">
-          <fo:block font-family="{$textfont}" text-indent="1em" font-size="8pt">Requisite: <xsl:apply-templates select="arts/requisite"><xsl:sort select="."/></xsl:apply-templates></fo:block>
-        </xsl:if>
-        <xsl:apply-templates select="description"/>
-        <fo:block margin-bottom="2mm" font-family="{$textfont}"
-          font-size="7pt" font-style="italic" font-weight="normal">
-          <xsl:choose>
-            <xsl:when test="@type = 'standard' or @type = 'mystery'">
-              <xsl:choose>
-                <xsl:when test="guideline/@ward = 'true'">(As ward guideline)</xsl:when>
-                <xsl:otherwise>(Base <xsl:value-of select="guideline/base" /> <xsl:call-template name="spell-guidelines" />
-                <xsl:apply-templates select="arts/requisite" mode="guideline"/>)</xsl:otherwise>
-              </xsl:choose>
-            </xsl:when>
-            <xsl:when test="@type = 'general'">(Base effect)</xsl:when>
-            <xsl:when test="@type = 'unique'">(Unique spell)</xsl:when>
-            <xsl:when test="@type = 'mercurian'">(Mercurian Ritual)</xsl:when>
-            <xsl:when test="@type = 'special'">(Special spell)</xsl:when>
-            <xsl:otherwise>
-              ERROR
-            </xsl:otherwise>
-          </xsl:choose>
-        </fo:block>
-      </fo:block>
-    </xsl:for-each>
   </xsl:template>
 
   <xsl:template name="spellindex">
