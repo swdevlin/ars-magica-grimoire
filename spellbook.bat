@@ -1,2 +1,37 @@
-java -cp c:\winutil\saxon\saxon9he.jar net.sf.saxon.Transform -t -s:ars_spells.xml -xsl:spellbook.xsl -o:spellbook.fo
-c:\WinUtil\fop\fop -fo spellbook.fo -pdf spellbook.pdf -c fop.cfg
+@echo off
+set wide=
+set template=spellbook
+set print=
+set source=ars_spells.xml
+set cover=true
+
+:parse
+IF "%~1"=="" GOTO endparse
+IF "%~1"=="-c" set cover=false
+IF "%~1"=="-w" set wide=_wide
+IF "%~1"=="-o" set template=spellsonly
+IF "%~1"=="-s" set source=%~2
+IF "%~1"=="-t" set template=%~2
+IF "%~1"=="-p" set print=true
+IF "%~1"=="/?" goto help
+IF "%~1"=="-?" goto help
+SHIFT
+GOTO parse
+:endparse
+
+java -cp c:\winutil\saxon\saxon9he.jar net.sf.saxon.Transform -t -s:%source% -xsl:%template%%wide%.xsl -o:ars_spells.fo edit=%print% cover=%cover%
+c:\WinUtil\fop\fop -fo ars_spells.fo -pdf ars_magica_grimoire%wide%.pdf -c fop.cfg
+exit
+
+:help
+ECHO Create Ars Magica PDF
+ECHO. 
+ECHO Convert an XML file of spells to a PDF. The PDF will be named ars_magica_grimoide.pdf, or ars_magica_grimoire_wide.pdf if the wide option is selected.
+ECHO ibtbook.bat [-c] [-w] [-o] [-p] [-s filename] [-t filename]
+ECHO -c   Suppress the cover page
+ECHO -w   Use wide page layout
+ECHO -o   Only output the spell pages
+ECHO -p   Generate a PDF suitable for printing; no background images
+ECHO -s   Specify the source XML file; the default filename is ars_spells.xml
+ECHO -t   Specify a template to use; by default the script will determine the XSL file to use based on the command line options
+exit
