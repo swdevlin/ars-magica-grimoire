@@ -136,7 +136,7 @@
     <xsl:for-each select="$sortedspells/spell[arts/technique=$technique and arts/form=$form and level=$level]">
       <fo:block page-break-inside="avoid">
         <fo:block id="{generate-id(.)}" font-family="{$textfont}" font-size="9pt" font-weight="normal">
-          <fo:inline text-transform="capitalize"><xsl:value-of select="name" /></fo:inline><xsl:call-template name="source"/>
+          <fo:inline><xsl:value-of select="name" /></fo:inline><xsl:call-template name="source"/>
         </fo:block>
         <fo:block font-family="{$textfont}" text-indent="1em" font-size="8pt" font-weight="normal">
           R: <xsl:apply-templates select="range" />, D: <xsl:apply-templates select="duration" />, T: <xsl:value-of select="target" />
@@ -176,7 +176,7 @@
     <xsl:param name="form"/>
     <xsl:param name="technique"/>
     <xsl:variable name="color"><xsl:value-of select="/ars_magica/arts/form[name=$form]/color"/></xsl:variable>
-    <fo:block keep-with-next.within-page="always" color="{$color}" text-transform="capitalize" font-family="{$artfont}" font-size="12pt" margin-bottom="8px" font-weight="normal">
+    <fo:block keep-with-next.within-page="always" color="{$color}" font-family="{$artfont}" font-size="12pt" margin-bottom="8px" font-weight="normal">
       <fo:marker marker-class-name="form"><xsl:value-of select="$form"/></fo:marker>
       <fo:marker marker-class-name="technique"><xsl:value-of select="$technique"/></fo:marker>
       <xsl:value-of select="$technique"/><xsl:text> </xsl:text><xsl:value-of select="$form"/> Spells

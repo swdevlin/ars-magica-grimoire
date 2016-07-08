@@ -46,9 +46,10 @@
     <fo:page-sequence master-reference="spell-list">
       <fo:static-content flow-name="xsl-region-before">
         <xsl:if test="$edit = ''">
-          <fo:block-container absolute-position="absolute" top="0cm" left="0cm" width="{$width}" height="{$height}"
-            background-image="images/index-paper.jpg">
-            <fo:block />
+          <fo:block-container absolute-position="absolute" top="0cm" left="0cm" width="{$width}" height="{$height}">
+            <fo:block>
+              <fo:external-graphic src="images/index-paper{$wide}.jpg"  content-height="scale-to-fit" height="{$height}"  content-width="{$width}" scaling="non-uniform"/>
+            </fo:block>
           </fo:block-container>
         </xsl:if>
         <fo:block></fo:block>

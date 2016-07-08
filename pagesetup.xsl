@@ -6,10 +6,16 @@
   
   <xsl:variable name="smallcase" select="'abcdefghijklmnopqrstuvwxyz'" />
   <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'" />  
+  <xsl:variable name="wide">
+    <xsl:choose>
+      <xsl:when test="translate($orientation, $smallcase, $uppercase) = 'LANDSCAPE'">-wide</xsl:when>
+      <xsl:otherwise></xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
   <xsl:variable name="cols">
     <xsl:choose>
-      <xsl:when test="$orientation = 'portrait'">2</xsl:when>
-      <xsl:otherwise>3</xsl:otherwise>
+      <xsl:when test="translate($orientation, $smallcase, $uppercase) = 'LANDSCAPE'">3</xsl:when>
+      <xsl:otherwise>2</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
   <xsl:variable name="width">
