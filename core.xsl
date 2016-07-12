@@ -7,7 +7,17 @@
   <xsl:template match="p">
     <fo:block text-indent="1em" font-family="{$textfont}" font-size="8pt" font-weight="normal"><xsl:apply-templates/></fo:block>
   </xsl:template>
-
+  
+  <xsl:template match="spell-link">
+    <xsl:variable name="sname" select="@name"/>
+    <xsl:value-of select="@name"/>
+    <fo:inline font-style="italic">
+      <fo:basic-link internal-destination="{generate-id($sortedspells/spell[name=$sname])}">
+        (pg. <fo:page-number-citation ref-id="{generate-id($sortedspells/spell[name=$sname])}" />)
+      </fo:basic-link>
+    </fo:inline>
+  </xsl:template>
+  
   <xsl:template match="reference"><fo:inline font-style="italic"><xsl:value-of select="."/></fo:inline>
     <xsl:choose>
       <xsl:when test="@page != ''">, page <xsl:value-of select="@page"/></xsl:when>
@@ -110,6 +120,27 @@
 
   <xsl:template match="requisite">
     <xsl:value-of select="." /><xsl:if test="position() &lt; last()">, </xsl:if>
+  </xsl:template>
+
+  <xsl:template match="requisite" mode="abbreviation">
+    <xsl:choose>
+      <xsl:when test=". = 'Animal'">An</xsl:when>
+      <xsl:when test=". = 'Corpus'">Co</xsl:when>
+      <xsl:when test=". = 'Herbam'">He</xsl:when>
+      <xsl:when test=". = 'Ignem'">Ig</xsl:when>
+      <xsl:when test=". = 'Auram'">Au</xsl:when>
+      <xsl:when test=". = 'Aquam'">Aq</xsl:when>
+      <xsl:when test=". = 'Mentem'">Me</xsl:when>
+      <xsl:when test=". = 'Imaginem'">Im</xsl:when>
+      <xsl:when test=". = 'Terram'">Te</xsl:when>
+      <xsl:when test=". = 'Vim'">Vi</xsl:when>
+
+      <xsl:when test=". = 'Creo'">Cr</xsl:when>
+      <xsl:when test=". = 'Muto'">Mu</xsl:when>
+      <xsl:when test=". = 'Perdo'">Pe</xsl:when>
+      <xsl:when test=". = 'Intellego'">In</xsl:when>
+      <xsl:when test=". = 'Rego'">Re</xsl:when>
+    </xsl:choose><xsl:if test="position() &lt; last()">, </xsl:if>
   </xsl:template>
 
   <xsl:template match="requisite" mode="guideline">
