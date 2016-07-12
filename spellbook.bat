@@ -28,7 +28,7 @@ GOTO parse
 
 java -cp c:\winutil\saxon\saxon9he.jar net.sf.saxon.Transform -t -s:%source% -xsl:%template%%wide%.xsl -o:ars_spells.fo edit=%print% cover=%cover% flow=%flow% paper=%paper% orientation=%orientation% source=%spellsource%
 c:\WinUtil\fop\fop -fo ars_spells.fo -pdf ars_magica_grimoire%wide%.pdf -c fop.cfg
-exit
+exit /B
 
 :help
 ECHO Create Ars Magica PDF
@@ -42,4 +42,4 @@ ECHO -o   Only output the spell pages
 ECHO -p   Generate a PDF suitable for printing; no background images
 ECHO -s   Specify the source XML file; the default filename is ars_spells.xml
 ECHO -t   Specify a template to use; by default the script will determine the XSL file to use based on the command line options
-exit
+exit /B
