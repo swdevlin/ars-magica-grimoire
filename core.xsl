@@ -42,6 +42,7 @@
       <xsl:when test="range = 'Sight'">, +3 Sight</xsl:when>
       <xsl:when test="range = 'Arcane Connection'">, +4 Arcane Connection</xsl:when>
       <xsl:when test="range = 'Symbol'">, +4 Symbol</xsl:when>
+      <xsl:when test="range = 'Lunar'">, +4 Lunar</xsl:when>
       <xsl:when test="range = 'Ground'">, +4 Ground</xsl:when>
       <xsl:otherwise>RANGE ERROR</xsl:otherwise>
     </xsl:choose>
@@ -84,6 +85,7 @@
       <xsl:when test="target = 'Sight'">, +3 Sight</xsl:when>
       <xsl:when test="target = 'Hearing'">, +3 Hearing</xsl:when>
       <xsl:when test="target = 'Sound'">, +3 Sound</xsl:when>
+      <xsl:when test="target = 'Barrier'">, +3 Barrier</xsl:when>
       <xsl:when test="target = 'Structure'">, +3 Structure</xsl:when>
       <xsl:when test="target = 'Bloodline'">, +3 Bloodline</xsl:when>
       <xsl:when test="target = 'Spectacle'">, +4 Spectacle</xsl:when>
