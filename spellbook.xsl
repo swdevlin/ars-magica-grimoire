@@ -120,6 +120,7 @@
             </fo:block>
           </fo:block-container>
         </xsl:if>
+        <fo:block></fo:block>
       </fo:static-content>
       <fo:static-content flow-name="xsl-region-after">
         <fo:block color="{$handcolour}" text-align-last="justify" font-family="{$textfont}" font-size="8pt" font-weight="normal" margin-left="2cm" margin-right="2cm">
@@ -148,6 +149,7 @@
             </fo:block>
           </fo:block-container>
         </xsl:if>
+        <fo:block></fo:block>
       </fo:static-content>
       <fo:static-content flow-name="xsl-region-after">
         <fo:block color="{$handcolour}" text-align-last="justify" font-family="{$textfont}" font-size="8pt" font-weight="normal" margin-left="2cm" margin-right="2cm">
