@@ -8,14 +8,33 @@
     <fo:block text-indent="1em" font-family="{$textfont}" font-size="8pt" font-weight="normal"><xsl:apply-templates/></fo:block>
   </xsl:template>
   
-  <xsl:template match="spell-link">
-    <xsl:variable name="sname" select="@name"/>
-    <xsl:value-of select="@name"/>
-    <fo:inline font-style="italic">
-      <fo:basic-link internal-destination="{generate-id($sortedspells/spell[name=$sname])}">
-        (pg. <fo:page-number-citation ref-id="{generate-id($sortedspells/spell[name=$sname])}" />)
-      </fo:basic-link>
-    </fo:inline>
+  <xsl:template match="spell-link"><xsl:variable name="sname" select="@name"/>s<xsl:value-of select="@name"/> <fo:inline font-style="italic"><fo:basic-link internal-destination="{generate-id($sortedspells/spell[name=$sname])}"> (pg. <fo:page-number-citation ref-id="{generate-id($sortedspells/spell[name=$sname])}" />)</fo:basic-link></fo:inline></xsl:template>
+  
+  <xsl:template match="table">
+    <fo:table>
+      <fo:table-header>
+        <xsl:for-each select="columns/column">
+          <xsl:choose>
+            <xsl:when test="@width">
+              <xsl:variable name="w" select="@width"/>
+              <fo:table-cell width="{$w}"><fo:block font-family="{$textfont}" font-size="8pt" font-weight="bold"><xsl:value-of select="."/></fo:block></fo:table-cell>
+            </xsl:when>
+            <xsl:otherwise>
+              <fo:table-cell><fo:block font-size="8pt" font-family="{$textfont}" font-weight="bold"><xsl:value-of select="."/></fo:block></fo:table-cell>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:for-each>
+      </fo:table-header>
+      <fo:table-body>
+        <xsl:for-each select="row">
+          <fo:table-row table-layout="fixed">
+            <xsl:for-each select="cell">
+              <fo:table-cell><fo:block font-family="{$textfont}" font-size="8pt"><xsl:value-of select="."/></fo:block></fo:table-cell>
+            </xsl:for-each>
+          </fo:table-row>
+        </xsl:for-each>
+      </fo:table-body>
+    </fo:table>
   </xsl:template>
   
   <xsl:template match="reference"><fo:inline font-style="italic"><xsl:value-of select="."/></fo:inline>

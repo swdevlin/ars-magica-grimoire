@@ -123,7 +123,7 @@
       </fo:static-content>
       <fo:static-content flow-name="xsl-region-after">
         <fo:block color="{$handcolour}" text-align-last="justify" font-family="{$textfont}" font-size="8pt" font-weight="normal" margin-left="2cm" margin-right="2cm">
-          <fo:page-number/><fo:leader leader-pattern="space" /> 
+          <fo:page-number/><fo:leader leader-pattern="space" /><xsl:value-of select="$form"/> 
         </fo:block>
       </fo:static-content>
       <fo:flow flow-name="xsl-region-body">
@@ -144,14 +144,14 @@
         <xsl:if test="$edit = ''">
           <fo:block-container absolute-position="absolute" top="0cm" left="0cm" width="{$width}" height="{$height}">
             <fo:block>
-              <fo:external-graphic src="images/{$form}-paper{$wide}.jpg"  content-height="scale-to-fit" height="{$height}"  content-width="{$width}" scaling="non-uniform"/>
+              <fo:external-graphic src="images/{$form}-paper{$wide}.jpg" content-height="scale-to-fit" height="{$height}" content-width="{$width}" scaling="non-uniform"/>
             </fo:block>
           </fo:block-container>
         </xsl:if>
       </fo:static-content>
       <fo:static-content flow-name="xsl-region-after">
         <fo:block color="{$handcolour}" text-align-last="justify" font-family="{$textfont}" font-size="8pt" font-weight="normal" margin-left="2cm" margin-right="2cm">
-          <fo:page-number/><fo:leader leader-pattern="space" /> 
+          <fo:page-number/><fo:leader leader-pattern="space" /><xsl:value-of select="$technique"/><xsl:text> </xsl:text><xsl:value-of select="$form"/>
         </fo:block>
       </fo:static-content>
       <fo:flow flow-name="xsl-region-body">
@@ -178,7 +178,7 @@
                       <xsl:if test="@ritual='true'"><fo:inline font-style="italic">Ritual </fo:inline></xsl:if>
                       <xsl:if test="@faerie='true'"><fo:inline font-style="italic">Faerie </fo:inline></xsl:if>
                       <xsl:if test="@atlantean='true'"><fo:inline font-style="italic">Atlantean </fo:inline></xsl:if>
-                      <xsl:value-of select="description"/><xsl:call-template name="source"/>
+                      <xsl:apply-templates select="description" mode="guideline-notes"/><xsl:call-template name="source"/>
                     </fo:block>
                   </fo:table-cell>
                 </fo:table-row>
@@ -190,62 +190,57 @@
     </fo:page-sequence>
   </xsl:template>
 
+  <xsl:template match="description" mode="guideline-notes">
+    <xsl:apply-templates/>
+  </xsl:template>
+  
   <xsl:template name="spellblock">
     <xsl:param name="form"/>
     <xsl:param name="technique"/>
     <fo:page-sequence master-reference="spell-list">
-    <fo:static-content flow-name="xsl-region-before">
-      <xsl:if test="$edit = ''">
-        <fo:block-container absolute-position="absolute" top="0cm" left="0cm" width="{$width}" height="{$height}">
-          <fo:block>
-            <fo:external-graphic src="images/{$form}-paper{$wide}.jpg"  content-height="scale-to-fit" height="{$height}"  content-width="{$width}" scaling="non-uniform"/>
-          </fo:block>
-        </fo:block-container>
-      </xsl:if>
+      <fo:static-content flow-name="xsl-region-before">
+        <xsl:if test="$edit = ''">
+          <fo:block-container absolute-position="absolute" top="0cm" left="0cm" width="{$width}" height="{$height}">
+            <fo:block>
+              <fo:external-graphic src="images/{$form}-paper{$wide}.jpg"  content-height="scale-to-fit" height="{$height}"  content-width="{$width}" scaling="non-uniform"/>
+            </fo:block>
+          </fo:block-container>
+        </xsl:if>
+        <fo:block></fo:block>
+      </fo:static-content>
+      <fo:static-content flow-name="xsl-region-after">
+        <fo:block color="{$handcolour}" text-align-last="justify" font-family="{$textfont}" font-size="8pt" font-weight="normal" margin-left="2cm" margin-right="2cm">
+          <fo:page-number/><fo:leader leader-pattern="space" /><xsl:value-of select="$technique"/><xsl:text> </xsl:text><xsl:value-of select="$form"/>
+        </fo:block>
+      </fo:static-content>
+      <fo:flow flow-name="xsl-region-body">
+        <fo:block font-family="{$artfont}" font-size="12pt" margin-bottom="8px" font-weight="normal"><xsl:value-of select="$technique"/><xsl:text> </xsl:text><xsl:value-of select="$form"/> Spells</fo:block>
+        <xsl:variable name="generalspells" select="$in/ars_magica/spells/spell[arts/technique=$technique and arts/form=$form and level='GENERAL']"/>
+        <xsl:variable name="spells" select="$in/ars_magica/spells/spell[arts/technique=$technique and arts/form=$form and level != 'GENERAL']"/>
+        <xsl:variable name="levels" select="distinct-values($spells/level)"/>
 
-      <fo:block>
-        <fo:inline-container vertical-align="top" inline-progression-dimension="49.9%">
-          <fo:block></fo:block>
-        </fo:inline-container>
-        <fo:inline-container vertical-align="top" inline-progression-dimension="49.9%">
-          <fo:block></fo:block>
-        </fo:inline-container>
-      </fo:block>
-    </fo:static-content>
-    <fo:static-content flow-name="xsl-region-after">
-      <fo:block color="{$handcolour}" text-align-last="justify" font-family="{$textfont}" font-size="8pt" font-weight="normal" margin-left="2cm" margin-right="2cm">
-        <fo:page-number/><fo:leader leader-pattern="space" /><xsl:value-of select="$technique"/><xsl:text> </xsl:text><xsl:value-of select="$form"/>
-      </fo:block>
-    </fo:static-content>
-    <fo:flow flow-name="xsl-region-body">
-      <fo:block font-family="{$artfont}" font-size="12pt" margin-bottom="8px" font-weight="normal"><xsl:value-of select="$technique"/><xsl:text> </xsl:text><xsl:value-of select="$form"/> Spells</fo:block>
-      <xsl:variable name="generalspells" select="$in/ars_magica/spells/spell[arts/technique=$technique and arts/form=$form and level='GENERAL']"/>
-      <xsl:variable name="spells" select="$in/ars_magica/spells/spell[arts/technique=$technique and arts/form=$form and level != 'GENERAL']"/>
-      <xsl:variable name="levels" select="distinct-values($spells/level)"/>
-
-      <xsl:if test="count($generalspells) &gt; 0">
-        <fo:block keep-with-next.within-page="always" font-size="9pt" font-family="{$textfont}" margin-bottom="0.2em">GENERAL</fo:block>
-        <xsl:call-template name="spells-at-level">
-          <xsl:with-param name="form" select="$form"/>
-          <xsl:with-param name="technique" select="$technique"/>
-          <xsl:with-param name="level" select="'GENERAL'"/>
-        </xsl:call-template>
-        <fo:block margin-bottom="4px"> </fo:block>
-      </xsl:if>
-      <xsl:for-each select="$levels">
-        <xsl:sort select="." data-type="number"/>
-        <xsl:variable name="slevel" select="."/>
-        <fo:block keep-with-next.within-page="always" font-size="9pt" font-family="{$textfont}" margin-bottom="0.2em">LEVEL <xsl:value-of select="$slevel"/></fo:block>
-        <xsl:call-template name="spells-at-level">
-          <xsl:with-param name="form" select="$form"/>
-          <xsl:with-param name="technique" select="$technique"/>
-          <xsl:with-param name="level" select="$slevel"/>
-        </xsl:call-template>
-        <fo:block margin-bottom="4px"> </fo:block>
-      </xsl:for-each>
-    </fo:flow>
-  </fo:page-sequence>
-    
+        <xsl:if test="count($generalspells) &gt; 0">
+          <fo:block keep-with-next.within-page="always" font-size="9pt" font-family="{$textfont}" margin-bottom="0.2em">GENERAL</fo:block>
+          <xsl:call-template name="spells-at-level">
+            <xsl:with-param name="form" select="$form"/>
+            <xsl:with-param name="technique" select="$technique"/>
+            <xsl:with-param name="level" select="'GENERAL'"/>
+          </xsl:call-template>
+          <fo:block margin-bottom="4px"> </fo:block>
+        </xsl:if>
+        <xsl:for-each select="$levels">
+          <xsl:sort select="." data-type="number"/>
+          <xsl:variable name="slevel" select="."/>
+          <fo:block keep-with-next.within-page="always" font-size="9pt" font-family="{$textfont}" margin-bottom="0.2em">LEVEL <xsl:value-of select="$slevel"/></fo:block>
+          <xsl:call-template name="spells-at-level">
+            <xsl:with-param name="form" select="$form"/>
+            <xsl:with-param name="technique" select="$technique"/>
+            <xsl:with-param name="level" select="$slevel"/>
+          </xsl:call-template>
+          <fo:block margin-bottom="4px"> </fo:block>
+        </xsl:for-each>
+      </fo:flow>
+    </fo:page-sequence>
   </xsl:template>
 
   <xsl:template name="spellindex">
@@ -273,7 +268,7 @@
         </fo:block>
       </fo:static-content>
       <fo:flow flow-name="xsl-region-body">
-        <xsl:for-each select="$sortedspells/spell">
+        <xsl:for-each select="$sortedspells/spell[@type='standard' or @type='general']">
           <xsl:variable name="first" select="substring(name,1,1)"/>
           <xsl:variable name="prev" select="preceding-sibling::*[1]"/>
           <xsl:variable name="name" select="name"/>
