@@ -51,7 +51,7 @@ You can include a list of reference material used to compile your grimoire.
 </books>
 ```
 
-`abbreviation` maps to the `source` tag in the spell definition. The `name` value is used when listing books in the preface using the `booklist` tag.
+`abbreviation` maps to the `source` tag in the spell definition. `name` is used when listing books in the preface using the `booklist` tag.
 
 ### Arts
 
@@ -84,7 +84,7 @@ The techniques are used when selecting spells to print.
 
 ### Guidelines
 
-The system supports printing guidelines for each form/technique pair. Each pair print on its own page and uses the form's backdrop.
+The system supports printing guidelines for each form/technique pair. Each pair prints on its own page and uses the form's backdrop.
 
 ```xml
 <arts_guidelines>
@@ -139,6 +139,8 @@ Add your spells to the ars_spells.xml file.
 </spell>
 ```
 
+If `source` and `page` are included they are printed at the end of the name of the spell. The XSL supports a parameter to suppress the printing of the source.
+
 The `type` attribute can be standard, general, unique, mercurian, or special.
 
 The `ritual`, `faerie`, and `atlantean` attributes are optional. If set to true, then that label is displayed on the spell details line.
@@ -147,7 +149,7 @@ The `ritual`, `faerie`, and `atlantean` attributes are optional. If set to true,
 
 The `<arts>` tag can contain 0 or more `<requisite>` tags. The free attribute is optional, and defaults to false. If the `note` attribute is included then that text is added to the guideline text for the requisite in the text below the spell.
 
-`<range>`, `<duration>`, and `<target>` must be spelled out in full; you have to use `Concentration`, not `conc`, for example.
+`<range>`, `<duration>`, and `<target>` must be spelled out in full, capitalized; you have to use `Concentration`, not `conc`, for example.
 
 `<description>` holds one or more `<p>` and `<flavour>` tags. `<flavour>` text is printed in italics. If you use a spell-link tag, the XSL will convert that to a link and include the page number; useful for both on-line and print documents.
 
