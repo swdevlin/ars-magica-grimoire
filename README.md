@@ -18,12 +18,103 @@ Just run the spellbook.bat file. It will create the XSL:FO and then produce the 
 
 ## XML Definition
 
+### Preface
+
+You can include a preface for your grimiore. This will be printed at the begining of the document, on its own page or pages if you are particularly wordy. The preface has its own page background.
+
+```xml
+<preface>
+  <p indent="false" font="hand" size="24pt" colour="hand">Most Learned Companion,</p>
+  <p font="hand" size="18pt" colour="hand">
+    Contained here-in are all of the known enchantments of Fractured Magic, recorded without prejudice or bias. 
+    Many sources, both illustrious and wondrous, were exhaustively studied to author the compendium you now hold in your venerable hands. 
+    Enumeration of all prestigious references consulted in the transcription of these enchantments would require a tome as mighty as this one. 
+    I would be amiss, though, not to mention references that were more valuable than most: <booklist/>.
+  </p>
+  <p indent="false" font="hand" size="48pt" colour="#661A1A">N'Allette</p>
+</preface>
+```
+
+Use the `p` tag for each new paragraph. The first line of the paragraph will be indented unless `indent` is set to false. You can control the typeface, size, and colour of the text with the `font`, `size`, and `colour` attributes respectively. You can use the shortcut of `hand` for font and colour to use the default in the XSL. The default size is 8pt.
+
+The `booklist` tag will insert a list of books included in the document as well as the number of spells from each book. It is optional.
+
+### Booklist
+
+You can include a list of reference material used to compile your grimoire.
+
+```xml
+<books>
+  <book><abbreviation>C</abbreviation><name>Covenants</name></book>
+  <book><abbreviation>App</abbreviation><name>Apprentices</name></book>
+  <book><abbreviation>AM</abbreviation><name>Ancient Magic</name></book>
+</books>
+```
+
+`abbreviation` maps to the source` tag in the spell definition. The `name` value is used when listing books in the preface using the `booklist` tag.
+
+### Arts
+
+You can include notes about each form and technique.
+
+```xml
+<arts>
+  <form>
+    <name>Animal</name>
+    <color>#8B4513</color>
+    <description>
+      <p>Description about the form.</p>
+      <p>Multiple paragraphs are allowed.</p>
+    </description>
+  </form>
+  ...
+  <technique>
+    <name>Creo</name>
+    <color>#FFFFF0</color>
+  </technique>
+  ...
+</arts>
+```
+
+The system uses the list of forms to generate the pages. So even if you have no notes, you should keep an entry for each form. `p` denotes a paragraph.
+
+The notes for each form are printed on their own page and use the background associated with the form.
+
+The techniques are used when selecting spells to print.
+
+### Guidelines
+
+The system supports printing guidelines for each form/technique pair. Each pair print on its own page and uses the form's backdrop.
+
+```xml
+<arts_guidelines>
+  <arts_guideline>
+    <arts><form>Animal</form><technique>Creo</technique></arts>
+    <description>
+      <p>Standard description section.</p>
+      <p>Multiple paragraphs are allowed. You are also able to use <spell-link name="Name of the spell"/> tags.</p>
+    </description>
+    <guidelines>
+      <guideline source="RoP:M" page="27"><level>General</level><description>A description of a General guideline.</description></guideline>
+      <guideline><level>1</level><description>Description of a guideline with a level.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  ...
+</arts_guidelines>
+```
+
+The `description` section prints before the list of guidelines, same as in the core Ars Magica book.
+
+`guideline`s are printed in the order listed; you will need to do the sorting manually.
+
+You can include a `source` and `page` attribute for a guideline. They will print at the end of the guideline.
+
 ### Spell Schema
 
 Add your spells to the ars_spells.xml file.
 
 ```xml
-<spell type="general" ritual="true" faerie="true" atlantean="true">
+<spell source="C" page="12" type="general" ritual="true" faerie="true" atlantean="true">
   <name>Sample General Spell</name>
   <level>GENERAL</level>
   <arts>
@@ -35,7 +126,7 @@ Add your spells to the ars_spells.xml file.
   <duration>Ring</duration>
   <target>Circle</target>
   <description>
-  <p>Spells that are general have a type of general and the level says GENERAL.</p>
+  <p>Spells that are general have a type of general and the level says GENERAL. You can also reference another spell using <spell-link name="Name of the Other Spell"/>.</p>
   <flavour>Not really about the spell, more about the world.</flavour>
   </description>
   <guideline>
@@ -58,7 +149,7 @@ The `<arts>` tag can contain 0 or more `<requisite>` tags. The free attribute is
 
 `<range>`, `<duration>`, and `<target>` must be spelled out in full; you have to use `Concentration`, not `conc`, for example.
 
-`<description>` holds one or more `<p>` and `<flavour>` tags. `<flavour>` text is printed in italics.
+`<description>` holds one or more `<p>` and `<flavour>` tags. `<flavour>` text is printed in italics. If you use a spell-link tag, the XSL will convert that to a link and include the page number; useful for both on-line and print documents.
 
 `<guidelines>` holds the spell guideline notes. `<base>` is the level of the base guideline for the spell. There is no need to include the range, duration, and target level modifiers, the XSL will do that for you. You only need to list non-standard level modifiers.
 
