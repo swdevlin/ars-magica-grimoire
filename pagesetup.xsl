@@ -17,6 +17,7 @@
   <xsl:variable name="cols">
     <xsl:choose>
       <xsl:when test="$uorientation='LANDSCAPE' and $upaper='TABLOID'">4</xsl:when>
+      <xsl:when test="$upaper='TABLOID'">3</xsl:when>
       <xsl:when test="$uorientation='LANDSCAPE'">3</xsl:when>
       <xsl:otherwise>2</xsl:otherwise>
     </xsl:choose>
