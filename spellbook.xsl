@@ -28,8 +28,8 @@
     <fo:root>
       <fo:layout-master-set>
         <fo:simple-page-master master-name="inner-leaf" page-height="{$height}" page-width="{$width}">
-          <fo:region-body margin="2cm" margin-right="8cm" />
-          <fo:region-before region-name="xsl-region-before" extent="8in"/>
+          <fo:region-body margin="2cm" margin-right="2cm" />
+          <fo:region-before region-name="xsl-region-before" extent="3in"/>
           <fo:region-after region-name="xsl-region-after" extent=".25in" />
         </fo:simple-page-master>
 
@@ -67,20 +67,8 @@
           </xsl:if>
           <fo:static-content flow-name="xsl-region-after"><fo:block></fo:block></fo:static-content>
           <fo:flow flow-name="xsl-region-body">
-            <fo:block color="{$handcolour}" font-family="{$handfont}" font-size="24pt">Most Learned Companion,</fo:block>
-            <fo:block color="{$handcolour}" font-family="{$handfont}" font-size="18pt">
-            Contained here-in are all of the known enchantments of Fractured Magic, recorded without prejudice or bias. 
-            Many sources, both illustrious and wondrous, were exhaustively studied to author the compendium you now hold in your venerable hands. 
-            Enumeration of all prestigious references consulted in the transcription of these enchantments would require a tome as mighty as this one. 
-            I would be amiss, though, not to mention references that were more valuable than most: <fo:inline font-family="Lauren C. Brown" font-size="10pt"> Ars Magica (<xsl:value-of select="count($in/ars_magica/spells/spell[not(@source)])"/> spells),</fo:inline>
-            <xsl:for-each select="ars_magica/books/book">
-              <xsl:sort select="name"/>
-              <xsl:variable name="abbrev" select="abbreviation"/>
-              <xsl:if test="position() = last()"><xsl:text> </xsl:text>and </xsl:if><fo:inline font-family="Lauren C. Brown" font-size="10pt"><xsl:value-of select="name" /><xsl:text> </xsl:text>(<xsl:value-of select="abbreviation" />, <xsl:value-of select="count($in/ars_magica/spells/spell[@source=$abbrev])"/> spells)<xsl:if test="position() &lt; last()">,</xsl:if></fo:inline>
-            </xsl:for-each>.
-            </fo:block>
-            <fo:block font-family="{$handfont}" color="#661A1A" font-size="48pt">N'Allette</fo:block>
-          </fo:flow>
+            <xsl:apply-templates select="$in/ars_magica/preface" mode="preface"/>
+         </fo:flow>
         </fo:page-sequence>
       </xsl:if>
 

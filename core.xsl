@@ -7,8 +7,47 @@
   <xsl:template match="p">
     <fo:block text-indent="1em" font-family="{$textfont}" font-size="8pt" font-weight="normal"><xsl:apply-templates/></fo:block>
   </xsl:template>
+
+  <xsl:template match="booklist">
+    <fo:inline font-family="Lauren C. Brown" font-size="10pt"> Ars Magica (<xsl:value-of select="count($in/ars_magica/spells/spell[not(@source)])"/> spells),</fo:inline>
+    <xsl:for-each select="$in/ars_magica/books/book">
+      <xsl:sort select="name"/>
+      <xsl:variable name="abbrev" select="abbreviation"/>
+      <xsl:if test="position() = last()"><xsl:text> </xsl:text>and </xsl:if><fo:inline font-family="Lauren C. Brown" font-size="10pt"><xsl:value-of select="name" /><xsl:text> </xsl:text>(<xsl:value-of select="abbreviation" />, <xsl:value-of select="count($in/ars_magica/spells/spell[@source=$abbrev])"/> spells)<xsl:if test="position() &lt; last()">,</xsl:if></fo:inline>
+    </xsl:for-each>
+  </xsl:template>
   
-  <xsl:template match="spell-link"><xsl:variable name="sname" select="@name"/>s<xsl:value-of select="@name"/> <fo:inline font-style="italic"><fo:basic-link internal-destination="{generate-id($sortedspells/spell[name=$sname])}"> (pg. <fo:page-number-citation ref-id="{generate-id($sortedspells/spell[name=$sname])}" />)</fo:basic-link></fo:inline></xsl:template>
+  <xsl:template match="p" mode="preface">
+    <xsl:variable name="indent">
+      <xsl:choose>
+        <xsl:when test="@indent = 'false'">0em</xsl:when>
+        <xsl:otherwise>1em</xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="colour">
+      <xsl:choose>
+        <xsl:when test="@colour = 'hand'"><xsl:value-of select="$handcolour"/></xsl:when>
+        <xsl:when test="@colour"><xsl:value-of select="@colour"/></xsl:when>
+        <xsl:otherwise><xsl:value-of select="$textcolour"/></xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="font">
+      <xsl:choose>
+        <xsl:when test="@font = 'hand'"><xsl:value-of select="$handfont"/></xsl:when>
+        <xsl:when test="@font"><xsl:value-of select="@font"/></xsl:when>
+        <xsl:otherwise><xsl:value-of select="$textfont"/></xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="size">
+      <xsl:choose>
+        <xsl:when test="@size"><xsl:value-of select="@size"/></xsl:when>
+        <xsl:otherwise>8pt</xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <fo:block text-indent="{$indent}" color="{$colour}" font-family="{$font}" font-size="{$size}" font-weight="normal"><xsl:apply-templates/></fo:block>
+  </xsl:template>
+
+  <xsl:template match="spell-link"><xsl:variable name="sname" select="@name"/><fo:inline font-style="italic"><xsl:value-of select="@name"/> <fo:basic-link internal-destination="{generate-id($sortedspells/spell[name=$sname])}"> (pg. <fo:page-number-citation ref-id="{generate-id($sortedspells/spell[name=$sname])}" />)</fo:basic-link></fo:inline></xsl:template>
   
   <xsl:template match="table">
     <fo:table>
@@ -59,10 +98,12 @@
       <xsl:when test="range = 'Road'">, +2 Road</xsl:when>
       <xsl:when test="range = 'Water-way'">, +3 Water-way</xsl:when>
       <xsl:when test="range = 'Sight'">, +3 Sight</xsl:when>
+      <xsl:when test="range = 'Veil'">, +3 Veil</xsl:when>
       <xsl:when test="range = 'Arcane Connection'">, +4 Arcane Connection</xsl:when>
       <xsl:when test="range = 'Symbol'">, +4 Symbol</xsl:when>
       <xsl:when test="range = 'Lunar'">, +4 Lunar</xsl:when>
       <xsl:when test="range = 'Ground'">, +4 Ground</xsl:when>
+      <xsl:when test="range = 'Unlimited'">, +4 Unlimited</xsl:when>
       <xsl:otherwise>RANGE ERROR</xsl:otherwise>
     </xsl:choose>
     <xsl:choose>
@@ -79,6 +120,7 @@
       <xsl:when test="duration = 'Month'">, +3 Month</xsl:when>
       <xsl:when test="duration = 'Helstar'">, +3 Helstar</xsl:when>
       <xsl:when test="duration = 'Bargain'">, +3 Bargain</xsl:when>
+      <xsl:when test="duration = 'Event'">, +3 Event</xsl:when>
       <xsl:when test="duration = 'Until'">, +4 Until</xsl:when>
       <xsl:when test="duration = 'Year'">, +4 Year</xsl:when>
       <xsl:when test="duration = 'Year +1'">, +4 Year + 1</xsl:when>
