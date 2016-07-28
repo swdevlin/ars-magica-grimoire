@@ -51,7 +51,7 @@ You can include a list of reference material used to compile your grimoire.
 </books>
 ```
 
-`abbreviation` maps to the source` tag in the spell definition. The `name` value is used when listing books in the preface using the `booklist` tag.
+`abbreviation` maps to the `source` tag in the spell definition. The `name` value is used when listing books in the preface using the `booklist` tag.
 
 ### Arts
 
