@@ -92,7 +92,9 @@
           </xsl:for-each>
         </xsl:if>
       </xsl:for-each>
+
       <xsl:call-template name="spellindex"></xsl:call-template>
+
     </fo:root>
   </xsl:template>
 
@@ -228,53 +230,6 @@
             <xsl:with-param name="level" select="$slevel"/>
           </xsl:call-template>
           <fo:block margin-bottom="4px"> </fo:block>
-        </xsl:for-each>
-      </fo:flow>
-    </fo:page-sequence>
-  </xsl:template>
-
-  <xsl:template name="spellindex">
-    <fo:page-sequence master-reference="spell-list">
-      <fo:static-content flow-name="xsl-region-before">
-        <xsl:if test="$edit = ''">
-          <fo:block-container absolute-position="absolute" top="0cm" left="0cm" width="{$width}" height="{$height}">
-            <fo:block>
-              <fo:external-graphic src="images/index-paper{$wide}.jpg" content-height="scale-to-fit" height="{$height}" content-width="{$width}" scaling="non-uniform"/>
-            </fo:block>
-          </fo:block-container>
-        </xsl:if>
-        <fo:block>
-          <fo:inline-container vertical-align="top" inline-progression-dimension="49.9%">
-            <fo:block></fo:block>
-          </fo:inline-container>
-          <fo:inline-container vertical-align="top" inline-progression-dimension="49.9%">
-            <fo:block></fo:block>
-          </fo:inline-container>
-        </fo:block>
-      </fo:static-content>
-      <fo:static-content flow-name="xsl-region-after">
-        <fo:block color="{$handcolour}" text-align-last="justify" font-family="{$textfont}" font-size="8pt" font-weight="normal" margin-left="2cm" margin-right="2cm">
-          <fo:page-number/><fo:leader leader-pattern="space" /> 
-        </fo:block>
-      </fo:static-content>
-      <fo:flow flow-name="xsl-region-body">
-        <xsl:for-each select="$sortedspells/spell[@type='standard' or @type='general']">
-          <xsl:variable name="first" select="substring(name,1,1)"/>
-          <xsl:variable name="prev" select="preceding-sibling::*[1]"/>
-          <xsl:variable name="name" select="name"/>
-
-          <xsl:if test="not(substring($prev/name, 1, 1)=$first)">
-            <fo:block keep-with-next.within-page="always" font-family="{$artfont}" font-size="12pt" font-weight="normal" margin-top="0.5em">
-              <xsl:value-of select="$first"/>
-            </fo:block>
-          </xsl:if>
-          <fo:block font-family="{$textfont}" font-size="8pt" font-weight="normal" text-align-last="justify">
-            <fo:basic-link internal-destination="{generate-id(.)}">
-              <xsl:value-of select="name" />
-              <fo:leader leader-pattern="dots" />
-              <fo:page-number-citation ref-id="{generate-id(.)}" />              
-            </fo:basic-link>
-          </fo:block>
         </xsl:for-each>
       </fo:flow>
     </fo:page-sequence>
