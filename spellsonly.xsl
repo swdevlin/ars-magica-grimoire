@@ -4,6 +4,7 @@
   xmlns:java="http://xml.apache.org/xslt/java"
   exclude-result-prefixes="java" xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
+  <xsl:param name="cover" select="'true'"/>
   <xsl:param name="single" select="''"/>
   <xsl:param name="edit" select="''"/>
   <xsl:param name="flow" select="''"/>
@@ -33,7 +34,33 @@
           <fo:region-before region-name="xsl-region-before" extent=".5in" />
           <fo:region-after region-name="xsl-region-after" extent=".5in" margin-right="2cm"/>
         </fo:simple-page-master>
+
+        <fo:simple-page-master master-name="inner-leaf" page-height="{$height}" page-width="{$width}">
+          <fo:region-body margin="2cm" margin-right="2cm" />
+          <fo:region-before region-name="xsl-region-before" extent="3in"/>
+          <fo:region-after region-name="xsl-region-after" extent=".25in" />
+        </fo:simple-page-master>
       </fo:layout-master-set>
+      
+      <xsl:if test="$cover = 'true'">
+        <fo:page-sequence master-reference="inner-leaf">
+          <xsl:if test="$edit = ''">
+            <fo:static-content flow-name="xsl-region-before">
+              <fo:block-container absolute-position="absolute" top="0cm" left="0cm" width="{$width}" height="{$height}">
+                <fo:block>
+                  <fo:external-graphic src="images/leaflet{$wide}.jpg" content-height="scale-to-fit" height="{$height}" content-width="{$width}" scaling="non-uniform"/>
+                </fo:block>
+              <fo:block></fo:block>
+              </fo:block-container>
+            </fo:static-content>
+          </xsl:if>
+          <fo:static-content flow-name="xsl-region-after"><fo:block></fo:block></fo:static-content>
+          <fo:flow flow-name="xsl-region-body">
+            <xsl:apply-templates select="$in/ars_magica/preface" mode="preface"/>
+         </fo:flow>
+        </fo:page-sequence>
+      </xsl:if>
+      
       <xsl:choose>
         <xsl:when test="$flow = 'true'"><xsl:call-template name="spellflow"/></xsl:when>
         <xsl:otherwise><xsl:call-template name="spellsection"/></xsl:otherwise>
