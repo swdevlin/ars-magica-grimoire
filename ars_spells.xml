@@ -1,0 +1,1037 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ars_magica>
+<preface>
+  <p indent="false" font="hand" size="24pt" colour="hand">Title,</p>
+  <p font="hand" size="18pt" colour="hand">
+    A description of the grimoire. And a list of the sources used to compile it: <booklist/>.
+  </p>
+  <toc/>
+  <p indent="false" font="hand" size="48pt" colour="#661A1A">Author</p>
+</preface>
+<arts>
+  <form>
+    <name>Animal</name>
+    <color>#8B4513</color>
+    <description>
+      <p>Description on the art Animal</p>
+    </description>
+  </form>
+  <form>
+    <name>Aquam</name>
+    <color>#000080</color>
+    <description>
+      <p>Description of the art Aquam</p>
+    </description>
+  </form>
+  <form>
+    <name>Auram</name>
+    <color>#EE82EE</color>
+    <description>
+      <p>Description of the art Auram</p>
+    </description>
+  </form>
+  <form>
+    <name>Corpus</name>
+    <color>#8B0000</color>
+    <description>
+      <p>Description of the art Corpus</p>
+    </description>
+  </form>
+  <form>
+    <name>Herbam</name>
+    <color>#006400</color>
+    <description>
+      <p>Description of the art Herbam</p>
+    </description>
+  </form>
+  <form>
+    <name>Ignem</name>
+    <color>#DC143C</color>
+    <description>
+      <p>Description of the art Ignem</p>
+    </description>
+  </form>
+  <form>
+    <name>Imaginem</name>
+    <color>#ADD8E6</color>
+    <description>
+      <p>Description of the art Imaginem</p>
+    </description>
+  </form>
+  <form>
+    <name>Mentem</name>
+    <color>#FF8C00</color>
+    <description>
+      <p>Description of the art Mentem</p>
+    </description>
+  </form>
+  <form>
+    <name>Terram</name>
+    <color>#583933</color>
+    <description>
+      <p>Description of the art Terram</p>
+    </description>
+  </form>
+  <form>
+    <name>Vim</name>
+    <color>#C0C0C0</color>
+    <description>
+      <p>Description of the art Vim</p>
+    </description>
+  </form>
+  <technique>
+    <name>Creo</name>
+    <color>#FFFFF0</color>
+  </technique>
+  <technique>
+    <name>Intellego</name>
+    <color>#FFD700</color>
+  </technique>
+  <technique>
+    <name>Muto</name>
+    <color>#F0E68C</color>
+  </technique>
+  <technique>
+    <name>Perdo</name>
+    <color>#000000</color>
+  </technique>
+  <technique>
+    <name>Rego</name>
+    <color>#800080</color>
+  </technique>
+</arts>
+<books>
+  <book><abbreviation>C</abbreviation><name>Covenants</name></book>
+  <book><abbreviation>App</abbreviation><name>Apprentices</name></book>
+  <book><abbreviation>AM</abbreviation><name>Ancient Magic</name></book>
+  <book><abbreviation>F</abbreviation><name>Faerie</name></book>
+  <book><abbreviation>TTT</abbreviation><name>Thrice Told Tales</name></book>
+  <book><abbreviation>G</abbreviation><name>Grogs</name></book>
+  <book><abbreviation>HoH:TL</abbreviation><name>House of Hermes: True Lineages</name></book>
+  <book><abbreviation>TC</abbreviation><name>The Church</name></book>
+  <book><abbreviation>HoH:MC</abbreviation><name>House of Hermes: Mystery Cults</name></book>
+  <book><abbreviation>HoH:S</abbreviation><name>House of Hermes: Societates</name></book>
+  <book><abbreviation>H</abbreviation><name>Hooks</name></book>
+  <book><abbreviation>RoP:TD</abbreviation><name>Realms of Power: The Divine</name></book>
+  <book><abbreviation>GotF</abbreviation><name>Guardians of the Forest</name></book>
+  <book><abbreviation>AtD</abbreviation><name>Against The Dark</name></book>
+  <book><abbreviation>BSaS</abbreviation><name>Between Sand and Sea</name></book>
+  <book><abbreviation>BCoC</abbreviation><name>Broken Covenant of Calebais</name></book>
+  <book><abbreviation>FaF</abbreviation><name>Faith and Flame</name></book>
+  <book><abbreviation>LatL</abbreviation><name>Lily and the Lion</name></book>
+  <book><abbreviation>TMRE</abbreviation><name>The Mysteries Revised Edition</name></book>
+  <book><abbreviation>ML</abbreviation><name>Mythic Locations</name></book>
+  <book><abbreviation>CaG</abbreviation><name>City and Guild</name></book>
+  <book><abbreviation>TSE</abbreviation><name>The Sundered Eagle</name></book>
+  <book><abbreviation>TCaTC</abbreviation><name>The Cradle and The Crescent</name></book>
+  <book><abbreviation>TCI</abbreviation><name>The Contested Isle</name></book>
+  <book><abbreviation>ToME</abbreviation><name>Tales of Mythic Europe</name></book>
+  <book><abbreviation>RM</abbreviation><name>Rival Magic</name></book>
+  <book><abbreviation>LoM</abbreviation><name>Lords of Men</name></book>
+  <book><abbreviation>TME</abbreviation><name>Transforming Mythic Europe</name></book>
+  <book><abbreviation>LotN</abbreviation><name>Lands of the Nile</name></book>
+  <book canon="false"><abbreviation>IBG</abbreviation><name>Iron-bound Grimoire</name></book>
+  <book canon="false"><abbreviation>SR</abbreviation><name>Sub Rosa</name></book>
+</books>
+<arts_guidelines>
+  <arts_guideline>
+    <arts><form>Animal</form><technique>Creo</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Animal</form><technique>Intellego</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Animal</form><technique>Muto</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Animal</form><technique>Perdo</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Animal</form><technique>Rego</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Aquam</form><technique>Creo</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Aquam</form><technique>Intellego</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Aquam</form><technique>Muto</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Aquam</form><technique>Perdo</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Aquam</form><technique>Rego</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Auram</form><technique>Creo</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Auram</form><technique>Intellego</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Auram</form><technique>Muto</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Auram</form><technique>Perdo</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Auram</form><technique>Rego</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Corpus</form><technique>Creo</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Corpus</form><technique>Intellego</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Corpus</form><technique>Muto</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Corpus</form><technique>Perdo</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Corpus</form><technique>Rego</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Herbam</form><technique>Creo</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Herbam</form><technique>Intellego</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Herbam</form><technique>Muto</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Herbam</form><technique>Perdo</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Herbam</form><technique>Rego</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Ignem</form><technique>Creo</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Ignem</form><technique>Intellego</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Ignem</form><technique>Muto</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Ignem</form><technique>Perdo</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Ignem</form><technique>Rego</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Imaginem</form><technique>Creo</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Imaginem</form><technique>Intellego</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Imaginem</form><technique>Muto</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Imaginem</form><technique>Perdo</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Imaginem</form><technique>Rego</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Mentem</form><technique>Creo</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Mentem</form><technique>Intellego</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Mentem</form><technique>Muto</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Mentem</form><technique>Perdo</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Mentem</form><technique>Rego</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Terram</form><technique>Creo</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Terram</form><technique>Intellego</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Terram</form><technique>Muto</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Terram</form><technique>Perdo</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Terram</form><technique>Rego</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Vim</form><technique>Creo</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Vim</form><technique>Intellego</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Vim</form><technique>Muto</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Vim</form><technique>Perdo</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+  <arts_guideline>
+    <arts><form>Vim</form><technique>Rego</technique></arts>
+    <description>
+      <p>Description of this form/technique pairing.</p>
+      <p>Descriptions can include <strong>bold</strong> and <emphasis>italic</emphasis> text.</p>
+    </description>
+    <guidelines>
+      <guideline><level>General</level><description>Sample general guidleline.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>General</level><description>Sample general guideline from non-core book.</description></guideline>
+      <guideline><level>1</level><description>Sample guideline.</description></guideline>
+      <guideline ritual="true"><level>2</level><description>Guidelines can also be designated as a ritual.</description></guideline>
+      <guideline source="RoP:M" page="27"><level>3</level><description>Sample guideline from non-core book.</description></guideline>
+      <guideline><level>5</level><description>Sample guideline with <strong>bold</strong> and <emphasis>italic</emphasis> text.</description></guideline>
+      <guideline mystery="true"><level>10</level><description>Guidelines can also be mysteries.</description></guideline>
+    </guidelines>
+  </arts_guideline>
+</arts_guidelines>
+<spells>
+<spell id="0" source="" page="" type="standard">
+<name>spell from the core book</name>
+<level>20</level>
+<arts><form>Animal</form><technique>Creo</technique></arts>
+<range>Touch</range>
+<duration>Diameter</duration>
+<target>Individual</target>
+<description>
+<p>Sample spell from the core book. It has no source or page attributes.</p>
+</description>
+<guideline><base>10</base><modifiers></modifiers></guideline>
+</spell>
+<spell id="1" source="C" page="99" type="standard" ritual="true">
+<name>spell from book</name>
+<level>20</level>
+<arts><form>Animal</form><technique>Creo</technique></arts>
+<range>Touch</range>
+<duration>Momentary</duration>
+<target>Individual</target>
+<description>
+<p>This spell comes from a non-core book. It has a source and a page number.</p>
+</description>
+<guideline><base>5</base><modifiers><modifier></modifier></modifiers></guideline>
+</spell>
+<spell id="3" type="standard" ritual="true">
+<name>sample ritual spell</name>
+<level>20</level>
+<arts><form>Animal</form><technique>Creo</technique></arts>
+<range>Touch</range>
+<duration>Momentary</duration>
+<target>Individual</target>
+<description>
+<p>Ritual spells have a ritual="true" attribute.</p>
+</description>
+<guideline><base>15</base><modifiers></modifiers></guideline>
+</spell>
+<spell id="6" type="standard">
+<name>spell with requisites</name>
+<level>30</level>
+<arts><form>Animal</form><technique>Creo</technique><requisite free="true">Muto</requisite><requisite>Rego</requisite></arts>
+<range>Touch</range>
+<duration>Sun</duration>
+<target>Group</target>
+<description>
+<p>Spells can include one or more requisites. Requisites can have a <emphasis>free="true"</emphasis> attribute if they do not affect the level of the spell</p>
+</description>
+<guideline><base>5</base><modifiers></modifiers></guideline>
+</spell>
+<spell id="11" type="standard">
+<name>spell with flavour text</name>
+<level>40</level>
+<arts><form>Animal</form><technique>Creo</technique></arts>
+<range>Touch</range>
+<duration>Momentary</duration>
+<target>Individual</target>
+<description>
+<p>This is the spell description.</p>
+<flavour>This is flavour text. It does not explain the effects of the spell but rather world colour for the spell.</flavour>
+</description>
+<guideline><base>35</base><modifiers></modifiers></guideline>
+</spell>
+<spell id="16" type="standard" faerie="true">
+<name>sample faerie spell</name>
+<level>10</level>
+<arts><form>Animal</form><technique>Intellego</technique></arts>
+<range>Personal</range>
+<duration>Concentration</duration>
+<target>Individual</target>
+<description>
+<p>Spells can have a <emphasis>faerie="true"</emphasis> attribute to designate a faerie spell.</p>
+</description>
+<guideline><base>4</base><modifiers></modifiers></guideline>
+</spell>
+<spell type="standard">
+<name>spell with modifiers</name>
+<level>35</level>
+<arts><form>Animal</form><technique>Muto</technique></arts>
+<range>Voice</range>
+<duration>Diameter</duration>
+<target>Part</target>
+<description>
+<p>Spells can include additional modifiers.</p>
+</description>
+<guideline><base>5</base><modifiers><modifier>+2 poison effect</modifier></modifiers></guideline>
+</spell>
+<spell id="59" type="general">
+<name>sample general spell</name>
+<level>GENERAL</level>
+<arts><form>Animal</form><technique>Rego</technique></arts>
+<range>Touch</range>
+<duration>Ring</duration>
+<target>Circle</target>
+<description>
+<p>Spells that are general have a type of general and the level says GENERAL.</p>
+</description>
+<guideline><base></base><modifiers></modifiers></guideline>
+</spell>
+</spells>
+</ars_magica>
