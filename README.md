@@ -1,6 +1,11 @@
 # Ars Magica Grimoire
 
-A system for producing PDFs of Ars Magica spells. This started as a project for producing a single PDF of all published spells for Ars Magica.
+A system for producing PDFs of Ars Magica spells.
+PDFs can be in letter, A4, or tabloid page size, and either portrait or landscape.
+PDFs can be produced with page grounds for viewing on-line, or with no background for printing, although they
+look pretty good printed if your printer supports full page printing.
+
+This started as a project for producing a single PDF of all published spells for Ars Magica.
 
 ## Requirements
 
@@ -14,7 +19,34 @@ Once installed, edit the boot.bat file, setting the path to Saxon and fop to mat
 
 ## How to run
 
-Just run the spellbook.bat file. It will create the XSL:FO and then produce the PDF.
+### Windows
+
+There are two batch files.
+
+spellbook.bat will produce a grimoire PDF with a preface, guidelines, and spells, along with a spell index. It supports the following options:
+
+*-c* do not print the cover (preface) page
+*-s* specify the source spell XML document; the default is ars_spells.xml
+*-t* specify the XSL file to use; the default is spellbook.xsl
+*-p* produce a PDF for printing; no page backgrounds will be used
+*-nospellsource* the source of spells or guidelines will not be displayed
+*-paper* specify the paper size, either letter, A4, or tabloid. The default is letter
+*-orientation* specify page orientation, either portait or landscapel default is portait
+*/?* display help
+*-?* display help
+
+spellsonly.bat will produce a grimoire PDF with a preface, spells, and a spell index. It supports the following options:
+
+*-c* do not print the cover (preface) page
+*-s* specify the source spell XML document; the default is ars_spells.xml
+*-t* specify the XSL file to use; the default is spellsonly.xsl
+*-p* produce a PDF for printing; no page backgrounds will be used
+*-f* flow one form/technique pair after another; by default, each pair starts on its own page
+*-nospellsource* the source of spells or guidelines will not be displayed
+*-paper* specify the paper size, either letter, A4, or tabloid. The default is letter
+*-orientation* specify page orientation, either portait or landscapel default is portait
+*/?* display help
+*-?* display help
 
 ## XML Definition
 
