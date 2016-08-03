@@ -253,6 +253,7 @@
                 <xsl:apply-templates select="arts/requisite" mode="guideline"/>)</xsl:otherwise>
               </xsl:choose>
             </xsl:when>
+            <xsl:when test="@type = 'non-hermetic'">(Non-Hermetic)</xsl:when>
             <xsl:when test="@type = 'general'">(Base effect)</xsl:when>
             <xsl:when test="@type = 'unique'">(Unique spell)</xsl:when>
             <xsl:when test="@type = 'mercurian'">(Mercurian Ritual)</xsl:when>
@@ -324,14 +325,17 @@
         </fo:block>
       </fo:static-content>
       <fo:flow flow-name="xsl-region-body">
-        <xsl:for-each select="$sortedspells/spell[@type='standard' or @type='general']">
+        <xsl:for-each select="$sortedspells/spell[(@type='standard' or @type='general') and name != '']">
           <xsl:variable name="first" select="substring(name,1,1)"/>
           <xsl:variable name="prev" select="preceding-sibling::*[1]"/>
           <xsl:variable name="name" select="name"/>
 
           <xsl:if test="not(substring($prev/name, 1, 1)=$first)">
             <fo:block keep-with-next.within-page="always" font-family="{$artfont}" font-size="12pt" font-weight="normal" margin-top="0.5em">
-              <xsl:value-of select="$first"/>
+              <xsl:choose>
+              <xsl:when test="$first = '('"></xsl:when>
+              <xsl:otherwise><xsl:value-of select="$first"/></xsl:otherwise>
+              </xsl:choose>
             </fo:block>
           </xsl:if>
           <fo:block font-family="{$textfont}" font-size="8pt" font-weight="normal" text-align-last="justify">
@@ -345,5 +349,30 @@
       </fo:flow>
     </fo:page-sequence>
   </xsl:template>
-  
+
+  <xsl:template match="toc" mode="preface">
+    <xsl:for-each select="$in/ars_magica/arts/form">
+      <xsl:variable name="form" select="name"/>
+
+      <fo:block font-family="{$textfont}" font-size="8pt" font-weight="normal" text-align-last="justify">
+        <fo:basic-link internal-destination="{generate-id($form)}">
+          <xsl:value-of select="$form" />
+          <fo:leader leader-pattern="dots" />
+          <fo:page-number-citation ref-id="{generate-id($form)}" />
+        </fo:basic-link>
+      </fo:block>
+      <xsl:for-each select="$in/ars_magica/arts/technique">
+        <xsl:variable name="technique" select="name"/>
+        <xsl:variable name="toc_key"><xsl:value-of select="$technique"/> <xsl:value-of select="$form"/></xsl:variable>
+        <fo:block margin-left="1em" font-family="{$textfont}" font-size="8pt" font-weight="normal" text-align-last="justify">
+          <fo:basic-link internal-destination="{generate-id($toc_key)}">
+            <xsl:value-of select="$technique" />
+            <fo:leader leader-pattern="dots" />
+            <fo:page-number-citation ref-id="{generate-id($toc_key)}" />
+          </fo:basic-link>
+        </fo:block>
+      </xsl:for-each>
+    </xsl:for-each>
+  </xsl:template>
+
 </xsl:stylesheet>
