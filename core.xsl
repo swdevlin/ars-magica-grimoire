@@ -350,30 +350,4 @@
     </fo:page-sequence>
   </xsl:template>
 
-  <xsl:template match="toc" mode="preface">
-    <fo:block page-break-before="always"/>
-    <xsl:for-each select="$in/ars_magica/arts/form">
-      <xsl:variable name="form" select="name"/>
-
-      <fo:block font-family="{$textfont}" font-size="8pt" font-weight="normal" text-align-last="justify">
-        <fo:basic-link internal-destination="{$form}">
-          <xsl:value-of select="$form" />
-          <fo:leader leader-pattern="dots" />
-          <fo:page-number-citation ref-id="{$form}" />
-        </fo:basic-link>
-      </fo:block>
-      <xsl:for-each select="$in/ars_magica/arts/technique">
-        <xsl:variable name="technique" select="name"/>
-        <xsl:variable name="toc_key"><xsl:value-of select="$technique"/> <xsl:value-of select="$form"/></xsl:variable>
-        <fo:block margin-left="1em" font-family="{$textfont}" font-size="8pt" font-weight="normal" text-align-last="justify">
-          <fo:basic-link internal-destination="{$toc_key}">
-            <xsl:value-of select="$technique" />
-            <fo:leader leader-pattern="dots" />
-            <fo:page-number-citation ref-id="{$toc_key}" />
-          </fo:basic-link>
-        </fo:block>
-      </xsl:for-each>
-    </xsl:for-each>
-  </xsl:template>
-
 </xsl:stylesheet>

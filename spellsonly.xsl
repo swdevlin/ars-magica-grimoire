@@ -91,7 +91,9 @@
           <xsl:variable name="form" select="."/>
           <xsl:for-each select="/ars_magica/arts/technique/name">
             <xsl:variable name="technique" select="."/>
+            <xsl:variable name="toc_key"><xsl:value-of select="$technique"/> <xsl:value-of select="$form"/></xsl:variable>
             <xsl:if test="count($in/ars_magica/spells/spell[arts/technique=$technique and arts/form=$form]) &gt; 0">
+              <fo:block id="{$toc_key}"></fo:block>
               <xsl:call-template name="formtechnique">
                 <xsl:with-param name="form" select="$form"/>
                 <xsl:with-param name="technique" select="$technique"/>
@@ -118,7 +120,6 @@
         </xsl:for-each>
       </xsl:if>
     </xsl:for-each>
-    <xsl:call-template name="spellindex"></xsl:call-template>
   </xsl:template>
 
   <xsl:template name="spellblock">
@@ -140,6 +141,8 @@
         </fo:block>
       </fo:static-content>
       <fo:flow flow-name="xsl-region-body">
+        <xsl:variable name="toc_key"><xsl:value-of select="$technique"/> <xsl:value-of select="$form"/></xsl:variable>
+        <fo:block id="{$toc_key}"></fo:block>
         <xsl:call-template name="formtechnique">
           <xsl:with-param name="form" select="$form"/>
           <xsl:with-param name="technique" select="$technique"/>
@@ -149,5 +152,27 @@
   </xsl:template>
 
   <xsl:include href="file:./core.xsl"/>
- 
+
+  <xsl:template match="toc" mode="preface">
+    <fo:block page-break-before="always"/>
+    <xsl:for-each select="$in/ars_magica/arts/form">
+      <xsl:variable name="form" select="name"/>
+
+      <fo:block font-family="{$textfont}" font-size="8pt" font-weight="normal" text-align-last="justify">
+        <xsl:value-of select="$form" />
+      </fo:block>
+      <xsl:for-each select="$in/ars_magica/arts/technique">
+        <xsl:variable name="technique" select="name"/>
+        <xsl:variable name="toc_key"><xsl:value-of select="$technique"/> <xsl:value-of select="$form"/></xsl:variable>
+        <fo:block margin-left="1em" font-family="{$textfont}" font-size="8pt" font-weight="normal" text-align-last="justify">
+          <fo:basic-link internal-destination="{$toc_key}">
+            <xsl:value-of select="$technique" />
+            <fo:leader leader-pattern="dots" />
+            <fo:page-number-citation ref-id="{$toc_key}" />
+          </fo:basic-link>
+        </fo:block>
+      </xsl:for-each>
+    </xsl:for-each>
+  </xsl:template>
+
 </xsl:stylesheet>
