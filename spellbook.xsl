@@ -118,7 +118,7 @@
         </fo:block>
       </fo:static-content>
       <fo:flow flow-name="xsl-region-body">
-        <fo:block id="{generate-id($form)}" text-align="center" font-family="{$artfont}" font-size="24pt" font-weight="normal">
+        <fo:block id="{$form}" text-align="center" font-family="{$artfont}" font-size="24pt" font-weight="normal">
           <xsl:value-of select="$form"/>
         </fo:block>
         <xsl:apply-templates select="/ars_magica/arts/form[name = $form]/description/p" mode="notes"/>
@@ -148,7 +148,7 @@
         </fo:block>
       </fo:static-content>
       <fo:flow flow-name="xsl-region-body">
-        <fo:block  id="{generate-id($toc_key)}" text-align="center" color="{$handcolour}" font-family="{$artfont}" font-size="18pt" font-weight="normal">
+        <fo:block  id="{$toc_key}" text-align="center" color="{$handcolour}" font-family="{$artfont}" font-size="18pt" font-weight="normal">
           <xsl:value-of select="$technique"/><xsl:text> </xsl:text><xsl:value-of select="$form"/>
         </fo:block>
         <xsl:apply-templates select="/ars_magica/arts_guidelines/arts_guideline[arts/form=$form and arts/technique=$technique]/description/p" mode="guideline"/>
