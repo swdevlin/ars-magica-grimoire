@@ -9,7 +9,7 @@ This started as a project for producing a single PDF of all published spells for
 
 ## Example
 
-Andrew Breese, of [Iron-Bound Tome](https://ironboundtome.wordpress.com/) has 
+Andrew Breese, of [Iron-Bound Tome](https://ironboundtome.wordpress.com/), has 
 been kind enough to use his excellent Ars Magica spell collection as a test
 collection for this project. An XML document with his spells, plus a sample PDF file,
 are in the examples\ibt folder.
