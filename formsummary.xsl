@@ -85,8 +85,8 @@
         <fo:table>
           <fo:table-body>
             <xsl:apply-templates select="$in/ars_magica/spells/spell[name != '']" mode="summarytable">
-              <xsl:sort select="arts/technique"/>
               <xsl:sort select="arts/form"/>
+              <xsl:sort select="arts/technique"/>
               <xsl:sort select="level" data-type="number"/>
               <xsl:sort select="name"/>
             </xsl:apply-templates>
@@ -102,10 +102,10 @@
         <fo:block font-size="8pt"><xsl:value-of select="name"/></fo:block>
       </fo:table-cell>    
       <fo:table-cell width="4em">
-        <fo:block font-size="7pt"><xsl:value-of select="arts/technique"/></fo:block>
+        <fo:block font-size="7pt"><xsl:value-of select="arts/form"/></fo:block>
       </fo:table-cell>
       <fo:table-cell width="4em">
-        <fo:block font-size="7pt"><xsl:value-of select="arts/form"/></fo:block>
+        <fo:block font-size="7pt"><xsl:value-of select="arts/technique"/></fo:block>
       </fo:table-cell>
       <fo:table-cell width="2.8em">
         <fo:block font-size="7pt"><xsl:choose><xsl:when test="level = 'GENERAL'">G</xsl:when><xsl:otherwise><xsl:value-of select="level"/></xsl:otherwise></xsl:choose></fo:block>

@@ -90,71 +90,79 @@
   <xsl:template name="spell-guidelines">
     <xsl:value-of select="guideline/modifiers/base"/>
     <xsl:choose>
-      <xsl:when test="range = 'Personal'" />
-      <xsl:when test="range = 'Adelphixis'" />
-      <xsl:when test="range = 'Touch'">, +1 Touch</xsl:when>
-      <xsl:when test="range = 'Eye'">, +1 Eye</xsl:when>
-      <xsl:when test="range = 'Voice'">, +2 Voice</xsl:when>
-      <xsl:when test="range = 'Road'">, +2 Road</xsl:when>
-      <xsl:when test="range = 'Water-way'">, +3 Water-way</xsl:when>
-      <xsl:when test="range = 'Sight'">, +3 Sight</xsl:when>
-      <xsl:when test="range = 'Veil'">, +3 Veil</xsl:when>
-      <xsl:when test="range = 'Arcane Connection'">, +4 Arcane Connection</xsl:when>
-      <xsl:when test="range = 'Symbol'">, +4 Symbol</xsl:when>
-      <xsl:when test="range = 'Lunar'">, +4 Lunar</xsl:when>
-      <xsl:when test="range = 'Ground'">, +4 Ground</xsl:when>
-      <xsl:when test="range = 'Unlimited'">, +4 Unlimited</xsl:when>
-      <xsl:otherwise>RANGE ERROR</xsl:otherwise>
-    </xsl:choose>
-    <xsl:choose>
-      <xsl:when test="duration = 'Momentary'" />
-      <xsl:when test="duration = 'Special'" />
-      <xsl:when test="duration = 'Dream'">, +1 Dream</xsl:when>
-      <xsl:when test="duration = 'Concentration'">, +1 Concentration</xsl:when>
-      <xsl:when test="duration = 'Performance'">, +1 Performance</xsl:when>
-      <xsl:when test="duration = 'Diameter'">, +1 Diameter</xsl:when>
-      <xsl:when test="duration = 'Sun'">, +2 Sun</xsl:when>
-      <xsl:when test="duration = 'Ring'">, +2 Ring</xsl:when>
-      <xsl:when test="duration = 'Fire'">, +3 Fire</xsl:when>
-      <xsl:when test="duration = 'Moon'">, +3 Moon</xsl:when>
-      <xsl:when test="duration = 'Month'">, +3 Month</xsl:when>
-      <xsl:when test="duration = 'Helstar'">, +3 Helstar</xsl:when>
-      <xsl:when test="duration = 'Bargain'">, +3 Bargain</xsl:when>
-      <xsl:when test="duration = 'Event'">, +3 Event</xsl:when>
-      <xsl:when test="duration = 'Until'">, +4 Until</xsl:when>
-      <xsl:when test="duration = 'Year'">, +4 Year</xsl:when>
-      <xsl:when test="duration = 'Year +1'">, +4 Year + 1</xsl:when>
-      <xsl:when test="duration = 'Symbol'">, +4 Symbol</xsl:when>
-      <xsl:otherwise>DURATION ERROR</xsl:otherwise>
-    </xsl:choose>
-    <xsl:choose>
-      <xsl:when test="target = 'Individual'" />
-      <xsl:when test="target = 'Unborn Child'" />
-      <xsl:when test="target = 'Taste'" />
-      <xsl:when test="target = 'Circle'" />
-      <xsl:when test="target = 'Flavour'" />
-      <xsl:when test="target = 'Dream'" />
-      <xsl:when test="target = 'Part'">, +1 Part</xsl:when>
-      <xsl:when test="target = 'Texture'">, +1 Texture</xsl:when>
-      <xsl:when test="target = 'Touch'">, +1 Touch</xsl:when>
-      <xsl:when test="target = 'Group'">, +2 Group</xsl:when>
-      <xsl:when test="target = 'Pair'">, +2 Pair</xsl:when>
-      <xsl:when test="target = 'Smell'">, +2 Smell</xsl:when>
-      <xsl:when test="target = 'Scent'">, +2 Scent</xsl:when>
-      <xsl:when test="target = 'Special'">, +2 Special</xsl:when>
-      <xsl:when test="target = 'Room'">, +2 Room</xsl:when>
-      <xsl:when test="target = 'Sight'">, +3 Sight</xsl:when>
-      <xsl:when test="target = 'Hearing'">, +3 Hearing</xsl:when>
-      <xsl:when test="target = 'Sound'">, +3 Sound</xsl:when>
-      <xsl:when test="target = 'Barrier'">, +3 Barrier</xsl:when>
-      <xsl:when test="target = 'Structure'">, +3 Structure</xsl:when>
-      <xsl:when test="target = 'Bloodline'">, +3 Bloodline</xsl:when>
-      <xsl:when test="target = 'Spectacle'">, +4 Spectacle</xsl:when>
-      <xsl:when test="target = 'Boundary'">, +4 Boundary</xsl:when>
-      <xsl:when test="target = 'Community'">, +4 Community</xsl:when>
-      <xsl:when test="target = 'Symbol'">, +4 Symbol</xsl:when>
-      <xsl:when test="target = 'Vision'">, +4 Vision</xsl:when>
-      <xsl:otherwise>TARGET ERROR</xsl:otherwise>
+      <xsl:when test="guideline/@ward = 'true'"></xsl:when>
+      <xsl:otherwise>
+        <xsl:choose>
+          <xsl:when test="range = 'Personal'" />
+          <xsl:when test="range = 'Adelphixis'" />
+          <xsl:when test="range = 'Touch'">, +1 Touch</xsl:when>
+          <xsl:when test="range = 'Eye'">, +1 Eye</xsl:when>
+          <xsl:when test="range = 'Voice'">, +2 Voice</xsl:when>
+          <xsl:when test="range = 'Road'">, +2 Road</xsl:when>
+          <xsl:when test="range = 'Water-way'">, +3 Water-way</xsl:when>
+          <xsl:when test="range = 'Sight'">, +3 Sight</xsl:when>
+          <xsl:when test="range = 'Veil'">, +3 Veil</xsl:when>
+          <xsl:when test="range = 'Line'">, +3 Line</xsl:when>
+          <xsl:when test="range = 'Arcane Connection'">, +4 Arcane Connection</xsl:when>
+          <xsl:when test="range = 'Symbol'">, +4 Symbol</xsl:when>
+          <xsl:when test="range = 'Lunar'">, +4 Lunar</xsl:when>
+          <xsl:when test="range = 'Ground'">, +4 Ground</xsl:when>
+          <xsl:when test="range = 'Unlimited'">, +4 Unlimited</xsl:when>
+          <xsl:otherwise>RANGE ERROR</xsl:otherwise>
+        </xsl:choose>
+        <xsl:choose>
+          <xsl:when test="duration = 'Momentary'" />
+          <xsl:when test="duration = 'Special'" />
+          <xsl:when test="duration = 'Dream'">, +1 Dream</xsl:when>
+          <xsl:when test="duration = 'Concentration'">, +1 Concentration</xsl:when>
+          <xsl:when test="duration = 'Performance'">, +1 Performance</xsl:when>
+          <xsl:when test="duration = 'Diameter'">, +1 Diameter</xsl:when>
+          <xsl:when test="duration = 'Sun'">, +2 Sun</xsl:when>
+          <xsl:when test="duration = 'Hours'">, +2 Hours</xsl:when>
+          <xsl:when test="duration = 'Ring'">, +2 Ring</xsl:when>
+          <xsl:when test="duration = 'Fire'">, +3 Fire</xsl:when>
+          <xsl:when test="duration = 'Moon'">, +3 Moon</xsl:when>
+          <xsl:when test="duration = 'Month'">, +3 Month</xsl:when>
+          <xsl:when test="duration = 'Helstar'">, +3 Helstar</xsl:when>
+          <xsl:when test="duration = 'Bargain'">, +3 Bargain</xsl:when>
+          <xsl:when test="duration = 'Event'">, +3 Event</xsl:when>
+          <xsl:when test="duration = 'Until'">, +4 Until</xsl:when>
+          <xsl:when test="duration = 'Year'">, +4 Year</xsl:when>
+          <xsl:when test="duration = 'Year +1'">, +4 Year + 1</xsl:when>
+          <xsl:when test="duration = 'Symbol'">, +4 Symbol</xsl:when>
+          <xsl:otherwise>DURATION ERROR</xsl:otherwise>
+        </xsl:choose>
+        <xsl:choose>
+          <xsl:when test="target = 'Individual'" />
+          <xsl:when test="target = 'Unborn Child'" />
+          <xsl:when test="target = 'Taste'" />
+          <xsl:when test="target = 'Circle'" />
+          <xsl:when test="target = 'Flavour'" />
+          <xsl:when test="target = 'Dream'" />
+          <xsl:when test="target = 'Arcane Circle'">+1 Arcane Circle</xsl:when>
+          <xsl:when test="target = 'Part'">, +1 Part</xsl:when>
+          <xsl:when test="target = 'Texture'">, +1 Texture</xsl:when>
+          <xsl:when test="target = 'Touch'">, +1 Touch</xsl:when>
+          <xsl:when test="target = 'Group'">, +2 Group</xsl:when>
+          <xsl:when test="target = 'Pair'">, +2 Pair</xsl:when>
+          <xsl:when test="target = 'Smell'">, +2 Smell</xsl:when>
+          <xsl:when test="target = 'Scent'">, +2 Scent</xsl:when>
+          <xsl:when test="target = 'Special'">, +2 Special</xsl:when>
+          <xsl:when test="target = 'Room'">, +2 Room</xsl:when>
+          <xsl:when test="target = 'Sight'">, +3 Sight</xsl:when>
+          <xsl:when test="target = 'Hearing'">, +3 Hearing</xsl:when>
+          <xsl:when test="target = 'Sound'">, +3 Sound</xsl:when>
+          <xsl:when test="target = 'Barrier'">, +3 Barrier</xsl:when>
+          <xsl:when test="target = 'Structure'">, +3 Structure</xsl:when>
+          <xsl:when test="target = 'Bloodline'">, +3 Bloodline</xsl:when>
+          <xsl:when test="target = 'Spectacle'">, +4 Spectacle</xsl:when>
+          <xsl:when test="target = 'Boundary'">, +4 Boundary</xsl:when>
+          <xsl:when test="target = 'Community'">, +4 Community</xsl:when>
+          <xsl:when test="target = 'Symbol'">, +4 Symbol</xsl:when>
+          <xsl:when test="target = 'Vision'">, +4 Vision</xsl:when>
+          <xsl:otherwise>TARGET ERROR</xsl:otherwise>
+        </xsl:choose>
+      </xsl:otherwise>
     </xsl:choose>
     <xsl:for-each select="guideline/modifiers/modifier">, <xsl:value-of select="." /></xsl:for-each>
   </xsl:template>
@@ -237,6 +245,7 @@
           <xsl:if test="@type='mystery'">, Mystery</xsl:if>
           <xsl:if test="@ritual='true'">, Ritual</xsl:if>
           <xsl:if test="@faerie='true'">, Faerie</xsl:if>
+          <xsl:if test="@subtype != ''">, <xsl:value-of select="@subtype"/></xsl:if>
           <xsl:if test="@atlantean='true'">, Atlantean</xsl:if>
         </fo:block>
         <xsl:if test="count(arts/requisite) &gt; 0">
@@ -248,10 +257,12 @@
           <xsl:choose>
             <xsl:when test="@type = 'standard' or @type = 'mystery'">
               <xsl:choose>
-                <xsl:when test="guideline/@ward = 'true'">(As ward guideline)</xsl:when>
-                <xsl:otherwise>(Base <xsl:value-of select="guideline/base" /> <xsl:call-template name="spell-guidelines" />
-                <xsl:apply-templates select="arts/requisite" mode="guideline"/>)</xsl:otherwise>
+                <xsl:when test="guideline/@ward = 'true' and guideline/base = ''">(As ward guideline</xsl:when>
+                <xsl:otherwise>
+                  (Base <xsl:value-of select="guideline/base" /> 
+                </xsl:otherwise>
               </xsl:choose>
+              <xsl:call-template name="spell-guidelines" /> <xsl:apply-templates select="arts/requisite" mode="guideline"/>)
             </xsl:when>
             <xsl:when test="@type = 'non-hermetic'">(Non-Hermetic)</xsl:when>
             <xsl:when test="@type = 'general'">(Base effect)</xsl:when>
