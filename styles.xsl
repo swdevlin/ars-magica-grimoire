@@ -10,4 +10,6 @@
   <xsl:variable name="handfont">Asphyxiate</xsl:variable>
   <xsl:variable name="sigfont">Asphyxiate</xsl:variable>
   <xsl:variable name="textfont">Calibri</xsl:variable>
+  <xsl:variable name="urlfont">Vera Sans</xsl:variable>
+  <xsl:variable name="urlcolour">#00008B</xsl:variable>
 </xsl:stylesheet>

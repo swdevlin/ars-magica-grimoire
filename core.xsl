@@ -252,27 +252,36 @@
           <fo:block font-family="{$textfont}" text-indent="1em" font-size="8pt">Requisite: <xsl:apply-templates select="arts/requisite"><xsl:sort select="."/></xsl:apply-templates></fo:block>
         </xsl:if>
         <xsl:apply-templates select="description"/>
-        <fo:block margin-bottom="2mm" font-family="{$textfont}"
-          font-size="7pt" font-style="italic" font-weight="normal">
-          <xsl:choose>
-            <xsl:when test="@type = 'standard' or @type = 'mystery'">
-              <xsl:choose>
-                <xsl:when test="guideline/@ward = 'true' and guideline/base = ''">(As ward guideline</xsl:when>
-                <xsl:otherwise>
-                  (Base <xsl:value-of select="guideline/base" /> 
-                </xsl:otherwise>
-              </xsl:choose>
-              <xsl:call-template name="spell-guidelines" /> <xsl:apply-templates select="arts/requisite" mode="guideline"/>)
-            </xsl:when>
-            <xsl:when test="@type = 'non-hermetic'">(Non-Hermetic)</xsl:when>
-            <xsl:when test="@type = 'general'">(Base effect)</xsl:when>
-            <xsl:when test="@type = 'unique'">(Unique spell)</xsl:when>
-            <xsl:when test="@type = 'mercurian'">(Mercurian Ritual)</xsl:when>
-            <xsl:when test="@type = 'special'">(Special spell)</xsl:when>
-            <xsl:otherwise>
-              ERROR
-            </xsl:otherwise>
-          </xsl:choose>
+        <fo:block margin-bottom="2mm">
+          <fo:block font-family="{$textfont}" font-size="7pt" font-style="italic" font-weight="normal">
+            <xsl:choose>
+              <xsl:when test="@type = 'standard' or @type = 'mystery'">
+                <xsl:choose>
+                  <xsl:when test="guideline/@ward = 'true' and guideline/base = ''">(As ward guideline</xsl:when>
+                  <xsl:otherwise>
+                    (Base <xsl:value-of select="guideline/base" /> 
+                  </xsl:otherwise>
+                </xsl:choose>
+                <xsl:call-template name="spell-guidelines" /> <xsl:apply-templates select="arts/requisite" mode="guideline"/>)
+              </xsl:when>
+              <xsl:when test="@type = 'non-hermetic'">(Non-Hermetic)</xsl:when>
+              <xsl:when test="@type = 'general'">(Base effect)</xsl:when>
+              <xsl:when test="@type = 'unique'">(Unique spell)</xsl:when>
+              <xsl:when test="@type = 'mercurian'">(Mercurian Ritual)</xsl:when>
+              <xsl:when test="@type = 'special'">(Special spell)</xsl:when>
+              <xsl:otherwise>
+                ERROR
+              </xsl:otherwise>
+            </xsl:choose>
+          </fo:block>
+          <xsl:if test="@link != ''">
+          <fo:block margin-top="0.5mm" font-family="{$urlfont}" font-size="7pt" font-weight="normal">
+            <xsl:variable name="title" select="@link_title"/>
+            <xsl:variable name="link" select="@link"/>
+            See <fo:inline color="{$urlcolour}" text-decoration="underline"><fo:basic-link external-destination="{$link}"><xsl:value-of select="@link_title"/></fo:basic-link></fo:inline>
+          </fo:block>
+          </xsl:if>
+
         </fo:block>
       </fo:block>
     </xsl:for-each>
