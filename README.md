@@ -20,6 +20,8 @@ You will need to install Java.
 
 You will need to install [Saxon](http://saxon.sourceforge.net/) to convert the spell XML document to an XSL:FO document.
 
+The font used for external URL links can be downloaded from: http://ftp.gnome.org/pub/GNOME/sources/ttf-bitstream-vera/1.10/
+
 And, lastly, you will need to install [fop](https://xmlgraphics.apache.org/fop/) to produce the PDF from the XSL:FO document.
 
 Once installed, edit the boot.bat file, setting the path to Saxon and fop to match your system setup.
