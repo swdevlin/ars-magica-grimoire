@@ -83,10 +83,6 @@
     </xsl:choose>
   </xsl:template>
 
-  <xsl:template match="flavour">
-    <fo:block text-indent="1em" font-family="{$textfont}" font-size="8pt" font-weight="normal" font-style="italic"><xsl:value-of select="." /></fo:block>
-  </xsl:template>
-
   <xsl:template name="spell-guidelines">
     <xsl:value-of select="guideline/modifiers/base"/>
     <xsl:choose>
@@ -225,10 +221,16 @@
 
   <xsl:template match="strong"><fo:inline font-weight="bold"><xsl:value-of select="."/></fo:inline></xsl:template>
 
+  <xsl:template match="self"><fo:inline font-style="italic"><xsl:value-of select="ancestor::spell[1]/name"/></fo:inline></xsl:template>
+  
   <xsl:template match="emphasis"><fo:inline font-style="italic"><xsl:value-of select="."/></fo:inline></xsl:template>
 
   <xsl:template match="p" mode="notes"><fo:block color="{$handcolour}" space-before="2.5pt" text-indent="1em" font-size="9pt"><xsl:apply-templates/></fo:block></xsl:template>
 
+  <xsl:template match="flavour">
+    <fo:block text-indent="1em" font-family="{$textfont}" font-size="8pt" font-weight="normal" font-style="italic"><xsl:apply-templates/></fo:block>
+  </xsl:template>
+  
   <xsl:template match="p" mode="guideline"><fo:block color="{$handcolour}" space-before="2.5pt" text-indent="1em" font-size="9pt"><xsl:apply-templates/></fo:block></xsl:template>
 
   <xsl:template name="spells-at-level">

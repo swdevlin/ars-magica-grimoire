@@ -7,6 +7,12 @@ look pretty good printed if your printer supports full page printing.
 
 This started as a project for producing a single PDF of all published spells for Ars Magica.
 
+## History
+
+2016-12-03
+* Flavour text now renders sub elements correctly
+* Added support for the `<self/>` tag, which renders as the name of the current spell, in italics.
+
 ## Example
 
 Andrew Breese, of [Iron-Bound Tome](https://ironboundtome.wordpress.com/), has 
@@ -20,9 +26,9 @@ You will need to install Java.
 
 You will need to install [Saxon](http://saxon.sourceforge.net/) to convert the spell XML document to an XSL:FO document.
 
-The font used for external URL links can be downloaded from: http://ftp.gnome.org/pub/GNOME/sources/ttf-bitstream-vera/1.10/
+You will need to install [fop](https://xmlgraphics.apache.org/fop/) to produce the PDF from the XSL:FO document.
 
-And, lastly, you will need to install [fop](https://xmlgraphics.apache.org/fop/) to produce the PDF from the XSL:FO document.
+The font used for external URL links can be downloaded from: http://ftp.gnome.org/pub/GNOME/sources/ttf-bitstream-vera/1.10/
 
 Once installed, edit the boot.bat file, setting the path to Saxon and fop to match your system setup.
 
