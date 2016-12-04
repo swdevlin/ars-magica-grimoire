@@ -2,8 +2,9 @@
 <xsl:stylesheet version="2.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
   xmlns:java="http://xml.apache.org/xslt/java"
-  exclude-result-prefixes="java" xmlns:fo="http://www.w3.org/1999/XSL/Format">  
-  
+  exclude-result-prefixes="java"
+  xmlns:fo="http://www.w3.org/1999/XSL/Format">  
+    
   <xsl:template match="p">
     <fo:block text-indent="1em" font-family="{$textfont}" font-size="8pt" font-weight="normal"><xsl:apply-templates/></fo:block>
   </xsl:template>
@@ -113,10 +114,11 @@
           <xsl:when test="duration = 'Concentration'">, +1 Concentration</xsl:when>
           <xsl:when test="duration = 'Performance'">, +1 Performance</xsl:when>
           <xsl:when test="duration = 'Diameter'">, +1 Diameter</xsl:when>
+          <xsl:when test="duration = 'While'">, +1 While</xsl:when>
+          <xsl:when test="duration = 'Fire'">, +1 Fire</xsl:when>
           <xsl:when test="duration = 'Sun'">, +2 Sun</xsl:when>
           <xsl:when test="duration = 'Hours'">, +2 Hours</xsl:when>
           <xsl:when test="duration = 'Ring'">, +2 Ring</xsl:when>
-          <xsl:when test="duration = 'Fire'">, +3 Fire</xsl:when>
           <xsl:when test="duration = 'Moon'">, +3 Moon</xsl:when>
           <xsl:when test="duration = 'Month'">, +3 Month</xsl:when>
           <xsl:when test="duration = 'Helstar'">, +3 Helstar</xsl:when>
@@ -175,7 +177,7 @@
   <xsl:template match="duration">
     <xsl:choose>
       <xsl:when test=". = 'Momentary'">Momentary</xsl:when>
-      <xsl:otherwise><xsl:value-of select="." /></xsl:otherwise>
+      <xsl:otherwise><xsl:value-of select="." /><xsl:if test="@condition != ''"> (<xsl:value-of select="@condition"/>)</xsl:if></xsl:otherwise>
     </xsl:choose>
   </xsl:template>
   

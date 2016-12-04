@@ -10,6 +10,10 @@ This started as a project for producing a single PDF of all published spells for
 ## History
 
 2016-12-03
+* The duration tag now support a condition attribute. If present, the condition is printed, in parenthesis, after the duration.
+
+2016-12-03
+* Add support for While duration
 * Flavour text now renders sub elements correctly
 * Added support for the `<self/>` tag, which renders as the name of the current spell, in italics.
 
@@ -196,7 +200,9 @@ The `ritual`, `faerie`, and `atlantean` attributes are optional. If set to true,
 
 The `<arts>` tag can contain 0 or more `<requisite>` tags. The free attribute is optional, and defaults to false. If the `note` attribute is included then that text is added to the guideline text for the requisite in the text below the spell.
 
-`<range>`, `<duration>`, and `<target>` must be spelled out in full, capitalized; you have to use `Concentration`, not `conc`, for example.
+`<range>`, `<duration>`, and `<target>` must be spelled out in full, capitalized; you have to use `Concentration`, not `conc`, for example. The `duration` element supports a `@while` attribute. If included, and the duration is While, then the value of the attribute will be displayed in () after While. For example,
+
+`<duration while="being carried">While</duration>` will display: While (being carried)
 
 `<description>` holds one or more `<p>` and `<flavour>` tags. `<flavour>` text is printed in italics. If you use a spell-link tag, the XSL will convert that to a link and include the page number; useful for both on-line and print documents.
 
