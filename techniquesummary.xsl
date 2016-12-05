@@ -99,7 +99,7 @@
   <xsl:template match="spell" mode="summarytable">
     <fo:table-row table-layout="fixed">
       <fo:table-cell>
-        <fo:block font-size="8pt"><xsl:value-of select="name"/></fo:block>
+        <fo:block font-size="7.5pt"><xsl:value-of select="name"/></fo:block>
       </fo:table-cell>    
       <fo:table-cell width="4em">
         <fo:block font-size="7pt"><xsl:value-of select="arts/technique"/></fo:block>
@@ -114,7 +114,13 @@
         <fo:block font-size="7pt"><xsl:apply-templates select="arts/requisite" mode="abbreviation"/></fo:block>
       </fo:table-cell>
       <fo:table-cell width="5em">
-        <fo:block font-size="7pt"></fo:block>
+        <fo:block font-size="7pt">
+          <xsl:if test="@type='mystery'">Mystery </xsl:if>
+          <xsl:if test="@ritual='true'">Ritual </xsl:if>
+          <xsl:if test="@faerie='true'">Faerie </xsl:if>
+          <xsl:if test="@subtype != ''"><xsl:value-of select="@subtype"/> </xsl:if>
+          <xsl:if test="@atlantean='true'">Atlantean </xsl:if>
+        </fo:block>
       </fo:table-cell>
       <fo:table-cell width="2.8em">
         <fo:block font-size="7pt"><xsl:value-of select="@source"/></fo:block>
