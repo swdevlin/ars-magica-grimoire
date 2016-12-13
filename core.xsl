@@ -6,7 +6,7 @@
   xmlns:fo="http://www.w3.org/1999/XSL/Format">  
     
   <xsl:template match="p">
-    <fo:block text-indent="1em" font-family="{$textfont}" font-size="8pt" font-weight="normal"><xsl:apply-templates/></fo:block>
+    <fo:block text-indent="1em" font-family="{$textfont}" font-size="8pt" font-weight="normal"><xsl:apply-templates/><xsl:call-template name="source"/></fo:block>
   </xsl:template>
 
   <xsl:template match="booklist">
@@ -182,7 +182,7 @@
   </xsl:template>
   
   <xsl:template name="source">
-  <xsl:if test="$source = 'true'">
+  <xsl:if test="$source = 'true' and @source != ''">
     <fo:inline font-size="6pt" color="{$handcolour}"><xsl:text> </xsl:text><xsl:value-of select="@source"/><xsl:text> </xsl:text><xsl:value-of select="@page"/></fo:inline>
   </xsl:if>
   </xsl:template>
@@ -233,7 +233,7 @@
     <fo:block text-indent="1em" font-family="{$textfont}" font-size="8pt" font-weight="normal" font-style="italic"><xsl:apply-templates/></fo:block>
   </xsl:template>
   
-  <xsl:template match="p" mode="guideline"><fo:block color="{$handcolour}" space-before="2.5pt" text-indent="1em" font-size="9pt"><xsl:apply-templates/></fo:block></xsl:template>
+  <xsl:template match="p" mode="guideline"><fo:block color="{$handcolour}" space-before="2.5pt" text-indent="1em" font-size="9pt"><xsl:apply-templates/><xsl:call-template name="source"/></fo:block></xsl:template>
 
   <xsl:template name="spells-at-level">
     <xsl:param name="form"/>
