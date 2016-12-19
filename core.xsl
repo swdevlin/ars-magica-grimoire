@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet version="2.0"
+<xsl:stylesheet version="3.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
   xmlns:java="http://xml.apache.org/xslt/java"
   exclude-result-prefixes="java"
@@ -9,6 +9,10 @@
     <fo:block text-indent="1em" font-family="{$textfont}" font-size="8pt" font-weight="normal"><xsl:apply-templates/><xsl:call-template name="source"/></fo:block>
   </xsl:template>
 
+  <xsl:decimal-format name="d" decimal-separator="." grouping-separator=" "/>
+  
+  <xsl:template match="spellcount"><xsl:value-of select="format-number(count(//spell[name != '']), '# ###', 'd')"/></xsl:template>
+    
   <xsl:template match="booklist">
     <fo:inline font-family="Lauren C. Brown" font-size="10pt"> Ars Magica (<xsl:value-of select="count($in/ars_magica/spells/spell[not(@source)])"/> spells),</fo:inline>
     <xsl:for-each select="$in/ars_magica/books/book">
@@ -367,6 +371,67 @@
               <xsl:value-of select="name" />
               <fo:leader leader-pattern="dots" />
               <fo:page-number-citation ref-id="{generate-id(.)}" />              
+            </fo:basic-link>
+          </fo:block>
+        </xsl:for-each>
+      </fo:flow>
+    </fo:page-sequence>
+  </xsl:template>
+
+  <xsl:template name="bookindex">
+    <fo:page-sequence master-reference="spell-list">
+      <fo:static-content flow-name="xsl-region-before">
+        <xsl:if test="$edit = ''">
+          <fo:block-container absolute-position="absolute" top="0cm" left="0cm" width="{$width}" height="{$height}">
+            <fo:block>
+              <fo:external-graphic src="images/index-paper{$wide}.jpg" content-height="scale-to-fit" height="{$height}" content-width="{$width}" scaling="non-uniform"/>
+            </fo:block>
+          </fo:block-container>
+        </xsl:if>
+        <fo:block>
+          <fo:inline-container vertical-align="top" inline-progression-dimension="49.9%">
+            <fo:block></fo:block>
+          </fo:inline-container>
+          <fo:inline-container vertical-align="top" inline-progression-dimension="49.9%">
+            <fo:block></fo:block>
+          </fo:inline-container>
+        </fo:block>
+      </fo:static-content>
+      <fo:static-content flow-name="xsl-region-after">
+        <fo:block color="{$handcolour}" text-align-last="justify" font-family="{$textfont}" font-size="8pt" font-weight="normal" margin-left="2cm" margin-right="2cm">
+          <fo:page-number/><fo:leader leader-pattern="space" /> 
+        </fo:block>
+      </fo:static-content>
+      <fo:flow flow-name="xsl-region-body">
+        <fo:block keep-with-next.within-page="always" font-family="{$artfont}" font-size="14pt" font-weight="normal" margin-top="0.5em">
+          Spells by Book
+        </fo:block>
+        <xsl:for-each select="$spellsbybook/spell[(@type='standard' or @type='general') and name != '']">
+          <xsl:variable name="name" select="name"/>
+          <xsl:variable name="source" select="@source"/>
+          <xsl:variable name="prev" select="preceding-sibling::*[1]"/>
+          <xsl:variable name="book">
+            <xsl:choose>
+              <xsl:when test="@source != ''"><xsl:value-of select="$in//book[abbreviation = $source]/name"/></xsl:when>
+              <xsl:otherwise>ArM5</xsl:otherwise>
+            </xsl:choose>
+          </xsl:variable>
+          <xsl:variable name="prevbook">
+            <xsl:choose>
+              <xsl:when test="$prev/@source != ''"><xsl:value-of select="$in//book[abbreviation = $prev/@source]/name"/></xsl:when>
+              <xsl:otherwise>ArM5</xsl:otherwise>
+            </xsl:choose>
+          </xsl:variable>
+
+          <xsl:if test="$prevbook != $book or position() = 1">
+            <fo:block keep-with-next.within-page="always" font-family="{$artfont}" font-size="10pt" font-weight="normal" margin-top="0.5em">
+              <xsl:value-of select="$book"/>
+            </fo:block>
+          </xsl:if>
+          <fo:block font-family="{$textfont}" font-size="8pt" font-weight="normal" text-align-last="justify">
+            <fo:basic-link internal-destination="{generate-id($sortedspells/spell[name=$name][1])}">
+              <xsl:value-of select="name" />
+              <fo:leader leader-pattern="dots" /><xsl:if test="@page != ''">Pg. <xsl:value-of select="@page" /></xsl:if>
             </fo:basic-link>
           </fo:block>
         </xsl:for-each>

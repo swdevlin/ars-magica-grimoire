@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet version="2.0"
+<xsl:stylesheet version="3.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
   xmlns:java="http://xml.apache.org/xslt/java"
   exclude-result-prefixes="java" xmlns:fo="http://www.w3.org/1999/XSL/Format">
@@ -17,6 +17,15 @@
   <xsl:variable name="in" select="/" />
   <xsl:variable name="sortedspells">
     <xsl:for-each select="$in/ars_magica/spells/spell">
+      <xsl:sort select="name"/>
+      <xsl:copy-of select="current()"/>
+    </xsl:for-each>
+  </xsl:variable>
+
+  <xsl:variable name="spellsbybook">
+    <xsl:for-each select="$in/ars_magica/spells/spell">
+      <xsl:sort select="@source"/>
+      <xsl:sort select="@page" data-type="number"/>
       <xsl:sort select="name"/>
       <xsl:copy-of select="current()"/>
     </xsl:for-each>
@@ -93,6 +102,7 @@
         </xsl:if>
       </xsl:for-each>
 
+      <xsl:call-template name="bookindex"></xsl:call-template>
       <xsl:call-template name="spellindex"></xsl:call-template>
 
     </fo:root>
