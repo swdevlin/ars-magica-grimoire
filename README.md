@@ -9,6 +9,9 @@ This started as a project for producing a single PDF of all published spells for
 
 ## History
 
+2016-12-30
+* Spells by book and the spell index are now included in the table of contents.
+
 2016-12-19
 * A breakdown of spells by source book is now generated
 * Processor uses XSLT 3.0

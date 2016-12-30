@@ -338,7 +338,7 @@
             </fo:block>
           </fo:block-container>
         </xsl:if>
-        <fo:block>
+        <fo:block id="spell_index">
           <fo:inline-container vertical-align="top" inline-progression-dimension="49.9%">
             <fo:block></fo:block>
           </fo:inline-container>
@@ -388,7 +388,7 @@
             </fo:block>
           </fo:block-container>
         </xsl:if>
-        <fo:block>
+        <fo:block id="book_index">
           <fo:inline-container vertical-align="top" inline-progression-dimension="49.9%">
             <fo:block></fo:block>
           </fo:inline-container>

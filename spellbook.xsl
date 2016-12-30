@@ -272,6 +272,16 @@
         </fo:block>
       </xsl:for-each>
     </xsl:for-each>
+    <fo:block margin-top="0.5em" font-family="{$textfont}" font-size="8pt" font-weight="normal" text-align-last="justify">
+      <fo:basic-link internal-destination="book_index">
+        Spells by Book<fo:leader leader-pattern="dots" /><fo:page-number-citation ref-id="book_index" />
+      </fo:basic-link>
+    </fo:block>
+    <fo:block margin-top="0.5em" font-family="{$textfont}" font-size="8pt" font-weight="normal" text-align-last="justify">
+      <fo:basic-link internal-destination="spell_index">
+        Spell Index<fo:leader leader-pattern="dots" /><fo:page-number-citation ref-id="spell_index" />
+      </fo:basic-link>
+    </fo:block>
   </xsl:template>
  
 </xsl:stylesheet>
