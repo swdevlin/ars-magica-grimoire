@@ -23,7 +23,7 @@
   </xsl:variable>
 
   <xsl:variable name="spellsbybook">
-    <xsl:for-each select="$in/ars_magica/spells/spell">
+    <xsl:for-each select="$in/ars_magica/spells/spell[name != '']">
       <xsl:sort select="@source"/>
       <xsl:sort select="@page" data-type="number"/>
       <xsl:sort select="name"/>
@@ -102,6 +102,7 @@
         </xsl:if>
       </xsl:for-each>
 
+      <xsl:call-template name="smbonuses"></xsl:call-template>
       <xsl:call-template name="bookindex"></xsl:call-template>
       <xsl:call-template name="spellindex"></xsl:call-template>
 
@@ -273,6 +274,11 @@
       </xsl:for-each>
     </xsl:for-each>
     <fo:block margin-top="0.5em" font-family="{$textfont}" font-size="8pt" font-weight="normal" text-align-last="justify">
+      <fo:basic-link internal-destination="smbonuses">
+        Shape &amp; Material Bonuses<fo:leader leader-pattern="dots" /><fo:page-number-citation ref-id="smbonuses" />
+      </fo:basic-link>
+    </fo:block>
+    <fo:block margin-top="0.5em" font-family="{$textfont}" font-size="8pt" font-weight="normal" text-align-last="justify">
       <fo:basic-link internal-destination="book_index">
         Spells by Book<fo:leader leader-pattern="dots" /><fo:page-number-citation ref-id="book_index" />
       </fo:basic-link>
@@ -284,4 +290,57 @@
     </fo:block>
   </xsl:template>
  
+  <xsl:template name="smbonuses">
+    <fo:page-sequence master-reference="spell-list">
+      <fo:static-content flow-name="xsl-region-before">
+        <xsl:if test="$edit = ''">
+          <fo:block-container absolute-position="absolute" top="0cm" left="0cm" width="{$width}" height="{$height}">
+            <fo:block>
+              <fo:external-graphic src="images/index-paper{$wide}.jpg" content-height="scale-to-fit" height="{$height}" content-width="{$width}" scaling="non-uniform"/>
+            </fo:block>
+          </fo:block-container>
+        </xsl:if>
+        <fo:block id="smbonuses">
+          <fo:inline-container vertical-align="top" inline-progression-dimension="49.9%">
+            <fo:block></fo:block>
+          </fo:inline-container>
+          <fo:inline-container vertical-align="top" inline-progression-dimension="49.9%">
+            <fo:block></fo:block>
+          </fo:inline-container>
+        </fo:block>
+      </fo:static-content>
+      <fo:static-content flow-name="xsl-region-after">
+        <fo:block color="{$handcolour}" text-align-last="justify" font-family="{$textfont}" font-size="8pt" font-weight="normal" margin-left="2cm" margin-right="2cm">
+          <fo:page-number/><fo:leader leader-pattern="space" /> 
+        </fo:block>
+      </fo:static-content>
+      <fo:flow flow-name="xsl-region-body">
+        <fo:block keep-with-next.within-page="always" font-family="{$artfont}" font-size="14pt" font-weight="normal" margin-top="0.5em">
+          Shape &amp; Material Bonuses
+        </fo:block>
+        <xsl:apply-templates select="$in/ars_magica/sm_bonuses/sm[@name != '']">
+          <xsl:sort select="@name"/> 
+        </xsl:apply-templates>
+      </fo:flow>
+    </fo:page-sequence>
+  </xsl:template>
+
+  <xsl:template match="sm">
+    <fo:block page-break-inside="avoid">
+      <fo:block margin-top="0.2em" font-family="{$textfont}" font-size="9pt" font-weight="bold">
+        <xsl:value-of select="@name" />
+        <xsl:apply-templates select="bonus">
+          <xsl:sort select="@value" data-type="number"/> 
+          <xsl:sort select="text()"/> 
+        </xsl:apply-templates>
+      </fo:block>
+    </fo:block>
+  </xsl:template>
+
+  <xsl:template match="bonus">
+    <fo:block margin-left="1em" font-family="{$textfont}" font-size="9pt" font-weight="normal">
+      +<xsl:value-of select="@value" /><xsl:text>  </xsl:text><xsl:value-of select="." /><xsl:call-template name="source"/>
+    </fo:block> 
+  </xsl:template>
+  
 </xsl:stylesheet>
