@@ -431,8 +431,10 @@
           <fo:block font-family="{$textfont}" font-size="8pt" font-weight="normal" text-align-last="justify">
             <fo:basic-link internal-destination="{generate-id($sortedspells/spell[name=$name][1])}">
               <xsl:value-of select="name" />
-              <fo:leader leader-pattern="dots" /><xsl:if test="@page != ''">Pg. <xsl:value-of select="@page" /></xsl:if>
             </fo:basic-link>
+            <xsl:variable name="link" select="@link"/>
+            <fo:leader leader-pattern="dots" /><xsl:if test="@page != ''">Pg. <xsl:value-of select="@page" /></xsl:if>
+            <xsl:if test="@link != ''"><fo:inline color="{$urlcolour}"><fo:basic-link external-destination="{$link}">Link</fo:basic-link></fo:inline></xsl:if>
           </fo:block>
         </xsl:for-each>
       </fo:flow>
