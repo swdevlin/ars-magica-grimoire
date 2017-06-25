@@ -1,0 +1,106 @@
+<!ELEMENT ars_magica (preface|books|sm_bonuses|laboratory|arts|arts_guidelines|spells|casting_tablets)*>
+<!ATTLIST spell-link name CDATA #IMPLIED>
+<!ELEMENT preface (toc|p)*>
+<!ELEMENT toc EMPTY>
+<!ELEMENT p ANY>
+<!ELEMENT flavour ANY>
+<!ATTLIST p indent (true|false) #IMPLIED>
+<!ATTLIST p font CDATA #IMPLIED>
+<!ATTLIST p size CDATA #IMPLIED>
+<!ATTLIST p colour CDATA #IMPLIED>
+<!ATTLIST p source CDATA #IMPLIED>
+<!ATTLIST p page CDATA #IMPLIED>
+<!ELEMENT books (book*)>
+<!ELEMENT book (abbreviation|name)*>
+<!ATTLIST book canon (true|false) #IMPLIED>
+<!ELEMENT abbreviation (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT spellcount EMPTY>
+<!ELEMENT booklist EMPTY>
+<!ELEMENT self EMPTY>
+<!ELEMENT spell-link EMPTY>
+<!ELEMENT sm_bonuses (sm*)>
+<!ELEMENT sm (bonus*)>
+<!ATTLIST sm name CDATA #IMPLIED>
+<!ELEMENT bonus (#PCDATA)>
+<!ATTLIST bonus value CDATA #IMPLIED>
+<!ATTLIST bonus source CDATA #IMPLIED>
+<!ATTLIST bonus page CDATA #IMPLIED>
+<!ELEMENT laboratory (features|virtues|flaws)*>
+<!ELEMENT virtues (structure|outfitting|supernatural)*>
+<!ELEMENT flaws (structure|outfitting|supernatural)*>
+<!ELEMENT features (feature*)>
+<!ELEMENT feature (name|description|specialization)*>
+<!ATTLIST feature source CDATA #IMPLIED>
+<!ATTLIST feature page CDATA #IMPLIED>
+<!ELEMENT structure (name|description|bonus)*>
+<!ATTLIST structure page CDATA #IMPLIED>
+<!ATTLIST structure type CDATA #IMPLIED>
+<!ATTLIST structure source CDATA #IMPLIED>
+<!ELEMENT outfitting (name|description|bonus)*>
+<!ATTLIST outfitting page CDATA #IMPLIED>
+<!ATTLIST outfitting type CDATA #IMPLIED>
+<!ATTLIST outfitting source CDATA #IMPLIED>
+<!ELEMENT supernatural (name|description|bonus)*>
+<!ATTLIST supernatural page CDATA #IMPLIED>
+<!ATTLIST supernatural type CDATA #IMPLIED>
+<!ATTLIST supernatural source CDATA #IMPLIED>
+<!ELEMENT column (#PCDATA)>
+<!ATTLIST column width CDATA #IMPLIED>
+<!ELEMENT cell (#PCDATA)>
+<!ELEMENT columns (column+)>
+<!ELEMENT row (cell+)>
+<!ELEMENT table (columns,row*)>
+<!ELEMENT description ANY>
+<!ELEMENT specialization (#PCDATA)>
+<!ELEMENT arts (form|technique|requisite)*>
+<!ELEMENT form (#PCDATA|name|color|description)*>
+<!ELEMENT technique (#PCDATA|name|color)*>
+<!ELEMENT color (#PCDATA)>
+<!ELEMENT strong (#PCDATA)>
+<!ELEMENT emphasis (#PCDATA)>
+<!ELEMENT level (#PCDATA)>
+<!ELEMENT reference (#PCDATA)>
+<!ATTLIST reference page CDATA #IMPLIED>
+<!ATTLIST reference chapter CDATA #IMPLIED>
+<!ELEMENT base (#PCDATA)>
+<!ELEMENT mage (#PCDATA)>
+<!ATTLIST mage link CDATA #IMPLIED>
+<!ELEMENT modifier (#PCDATA)>
+<!ELEMENT requisite (#PCDATA)>
+<!ATTLIST requisite free (true|false) #IMPLIED>
+<!ATTLIST requisite note CDATA #IMPLIED>
+<!ELEMENT modifiers (base|modifier)*>
+<!ELEMENT guideline (base|modifiers|level|description)*>
+<!ATTLIST guideline page CDATA #IMPLIED>
+<!ATTLIST guideline source CDATA #IMPLIED>
+<!ATTLIST guideline mystery (true|false) #IMPLIED>
+<!ATTLIST guideline ward (true|false) #IMPLIED>
+<!ATTLIST guideline ritual (true|false) #IMPLIED>
+<!ELEMENT guidelines (guideline)*>
+<!ELEMENT arts_guideline (arts|description|guidelines)*>
+<!ELEMENT arts_guidelines (arts_guideline)*>
+<!ELEMENT spells (spell)*>
+<!ELEMENT spell (name|level|arts|range|duration|target|description|guideline|mage)*>
+<!ATTLIST spell id CDATA #IMPLIED>
+<!ATTLIST spell source CDATA #IMPLIED>
+<!ATTLIST spell page CDATA #IMPLIED>
+<!ATTLIST spell restriction (research) #IMPLIED>
+<!ATTLIST spell type CDATA #IMPLIED>
+<!ATTLIST spell link CDATA #IMPLIED>
+<!ATTLIST spell link_title CDATA #IMPLIED>
+<!ATTLIST spell subtype CDATA #IMPLIED>
+<!ATTLIST spell mystery (true|false) #IMPLIED>
+<!ATTLIST spell faerie (true|false) #IMPLIED>
+<!ATTLIST spell atlantean (true|false) #IMPLIED>
+<!ATTLIST spell ritual (true|false) #IMPLIED>
+<!ELEMENT range (#PCDATA)>
+<!ELEMENT duration (#PCDATA)>
+<!ATTLIST duration condition CDATA #IMPLIED>
+<!ATTLIST casting_tablet source CDATA #IMPLIED>
+<!ATTLIST casting_tablet page CDATA #IMPLIED>
+<!ELEMENT target (#PCDATA)>
+<!ELEMENT penetration (#PCDATA)>
+<!ELEMENT casting_tablets (casting_tablet)*>
+<!ELEMENT casting_tablet (name|arts|level|range|duration|target|mage|penetration|description|guideline)*>
+<!ENTITY mdash "&#x2014;">

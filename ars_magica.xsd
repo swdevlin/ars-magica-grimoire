@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ars_magica">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="preface">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="books">
+          <xs:complexType>
+            <xs:sequence minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="book">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="abbreviation" type="xs:string"/>
+                    <xs:element name="name" type="xs:string"/>
+                  </xs:sequence>
+                  <xs:attribute name="canon" default="true">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="false"/>
+                        <xs:enumeration value="true"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="sm_bonuses">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="sm">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="bonus">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute name="value" type="xs:integer"/>
+                            <xs:attribute name="source" type="xs:string"/>
+                            <xs:attribute name="page" type="xs:integer"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="name" type="xs:string"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="laboratory">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="features">
+                <xs:complexType>
+                  <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                    <xs:element name="feature">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="name" maxOccurs="1" type="xs:string"/>
+                          <xs:element name="description" maxOccurs="1" type="xs:string"/>
+                          <xs:element name="specialization" maxOccurs="unbounded" type="xs:string"/>
+                        </xs:sequence>
+                        <xs:attribute name="source" type="xs:string"/>
+                        <xs:attribute name="page" type="xs:integer"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="virtues">
+                <xs:complexType>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="flaws">
+                <xs:complexType>
+                  <xs:sequence>
+
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="arts">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="arts_guidelines">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="spells">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="casting_tablets">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
